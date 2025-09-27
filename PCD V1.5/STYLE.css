@@ -1,0 +1,183 @@
+/* ================== GLOBAL ================== */
+body {
+  font-family: 'Raleway', sans-serif;  /* fuente moderna, elegante */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #f4f6f9;
+  color: #333;
+  font-size: 1rem; /* base */
+  line-height: 1.6;
+}
+
+/* ================== HEADER ================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #ff6f61, #ffcc70);
+  color: #fff;
+  padding: 18px 40px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+header h1 { 
+  margin: 0; 
+  font-size: 2.618rem;   /* φ^2 ≈ 2.618 */
+  font-weight: 800; 
+  letter-spacing: 1px;
+}
+
+/* ================== SECCIONES ================== */
+.intro { 
+  margin: 25px auto; 
+  font-size: 1.618rem;   /* φ ≈ 1.618 */
+  max-width: 750px; 
+  line-height: 1.7; 
+  color: #444;
+}
+
+/* ================== SLIDER ================== */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 40px auto;
+}
+
+.arrow {
+  font-size: 2.2rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 12px;
+  border-radius: 50%;
+  background: #2c3e50;
+  color: #fff;
+  transition: .3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+.arrow:hover { background: #34495e; }
+
+/* ================== TARJETAS ================== */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  padding: 28px;
+  width: min(90vw, 880px);
+  margin: 20px auto;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Raleway', sans-serif;  /* consistente en la tarjeta */
+  font-size: 1rem; /* texto normal */
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+}
+.card h3 { 
+  margin: 0; 
+  font-size: 1.618rem;   /* títulos proporcionados */
+  color: #ff6f61; 
+  font-weight: 700; 
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem; /* base */
+  color: #555;
+  line-height: 1.6;
+}
+
+canvas { 
+  width: 100%; 
+  height: auto; 
+}
+
+/* ================== EXTRAS ================== */
+.extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 22px;
+  padding: 24px;
+}
+
+/* ================== DROPDOWN ================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: #ff6f61;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+.dropdown-btn:hover {
+  background: #e85c50;
+  transform: translateY(-2px);
+}
+
+.dropdown-content {
+  display: none;                 
+  position: absolute;
+  background: #fff;
+  min-width: 220px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 8px 18px rgba(0,0,0,.2);
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 1000;
+  text-align: left;
+}
+.dropdown-content label {
+  display: block;
+  margin: 8px 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #333;
+}
+.dropdown-content input[type="checkbox"] {
+  margin-right: 8px;
+}
+.dropdown-content.show {
+  display: block;                
+}
+
+/* ================== TOOLTIP ================== */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 280px;
+  background: #2c3e50;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 10;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
