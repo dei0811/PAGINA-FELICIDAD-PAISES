@@ -1,183 +1,194 @@
-/* ================== GLOBAL ================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Raleway', sans-serif;  /* fuente moderna, elegante */
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: #f4f6f9;
-  color: #333;
-  font-size: 1rem; /* base */
-  line-height: 1.6;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+  color: #2c3e50;
+  background-color: #f7f5f0; /* tono cálido y suave */
+  transition: background-color 0.8s ease;
 }
 
-/* ================== HEADER ================== */
+/* Header */
 header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(90deg, #ff6f61, #ffcc70);
   color: #fff;
-  padding: 18px 40px;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,.15);
+  padding: 15px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  z-index: 1000;
 }
-header h1 { 
-  margin: 0; 
-  font-size: 2.618rem;   /* φ^2 ≈ 2.618 */
-  font-weight: 800; 
-  letter-spacing: 1px;
+header h1 { font-size: 1.8rem; }
+header nav { display: flex; gap: 20px; }
+header nav button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
+header nav button:hover { opacity: 0.8; }
 
-/* ================== SECCIONES ================== */
-.intro { 
-  margin: 25px auto; 
-  font-size: 1.618rem;   /* φ ≈ 1.618 */
-  max-width: 750px; 
-  line-height: 1.7; 
-  color: #444;
-}
-
-/* ================== SLIDER ================== */
-.dashboard {
+/* Sections */
+.section {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  margin: 40px auto;
+  text-align: center;
+  background: var(--bg);
+  padding: 120px 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.arrow {
+
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section h2 {
   font-size: 2.2rem;
-  cursor: pointer;
-  user-select: none;
-  padding: 12px;
-  border-radius: 50%;
-  background: #2c3e50;
-  color: #fff;
-  transition: .3s;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  margin-bottom: 20px;
+  color: #333;
 }
-.arrow:hover { background: #34495e; }
-
-/* ================== TARJETAS ================== */
-.card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
-  padding: 28px;
-  width: min(90vw, 880px);
-  margin: 20px auto;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  font-family: 'Raleway', sans-serif;  /* consistente en la tarjeta */
-  font-size: 1rem; /* texto normal */
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.15);
-}
-.card h3 { 
-  margin: 0; 
-  font-size: 1.618rem;   /* títulos proporcionados */
-  color: #ff6f61; 
-  font-weight: 700; 
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 1rem; /* base */
-  color: #555;
+.section p {
+  max-width: 800px;
+  margin: 10px auto;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
-
-canvas { 
-  width: 100%; 
-  height: auto; 
+.section ul {
+  list-style: none;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-/* ================== EXTRAS ================== */
-.extras {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 22px;
-  padding: 24px;
+/* Dashboard elements */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,.1);
+  padding: 25px;
+  margin: 20px auto;
+  width: min(90vw, 800px);
+  transition: transform 0.2s ease;
 }
+.card:hover { transform: translateY(-3px); }
 
-/* ================== DROPDOWN ================== */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.arrow, .nav-arrow {
+  font-size: 2rem;
+  cursor: pointer;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  user-select: none;
+  transition: background 0.3s;
 }
+.arrow:hover, .nav-arrow:hover { background: #34495e; }
 
+/* Global navigation arrows */
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.nav-arrow.left { left: 20px; }
+.nav-arrow.right { right: 20px; }
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
 .dropdown-btn {
   background: #ff6f61;
   color: #fff;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 10px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
 }
-.dropdown-btn:hover {
-  background: #e85c50;
-  transform: translateY(-2px);
-}
-
 .dropdown-content {
-  display: none;                 
+  display: none;
   position: absolute;
   background: #fff;
-  min-width: 220px;
-  max-height: 300px;
-  overflow-y: auto;
-  box-shadow: 0 8px 18px rgba(0,0,0,.2);
-  border-radius: 12px;
-  padding: 12px;
-  z-index: 1000;
-  text-align: left;
-}
-.dropdown-content label {
-  display: block;
-  margin: 8px 0;
-  font-size: 0.95rem;
-  cursor: pointer;
-  color: #333;
-}
-.dropdown-content input[type="checkbox"] {
-  margin-right: 8px;
-}
-.dropdown-content.show {
-  display: block;                
-}
-
-/* ================== TOOLTIP ================== */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-.tooltip-text {
-  visibility: hidden;
-  opacity: 0;
-  width: 280px;
-  background: #2c3e50;
-  color: #fff;
-  padding: 12px;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.2);
   border-radius: 10px;
-  position: absolute;
-  z-index: 10;
-  bottom: 130%;
-  left: 50%;
+  padding: 10px;
+}
+.dropdown-content.show { display: block; }
+
+/* Tooltip */
+.tooltip { position: relative; display: inline-block; cursor: pointer; }
+.tooltip-text {
+  visibility: hidden; opacity: 0;
+  background: #2c3e50; color: #fff;
+  padding: 10px; border-radius: 8px;
+  position: absolute; bottom: 130%; left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s ease;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  width: 250px;
 }
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+.tooltip:hover .tooltip-text { visibility: visible; opacity: 1; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f1f1f1;
+  color: #555;
+  font-size: 0.9rem;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+body {
+  scroll-snap-type: y mandatory;
+}
+/* Flechas globales (mantienen su tamaño actual) */
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  background: #2c3e50;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  transition: background 0.3s;
+}
+.nav-arrow:hover { background: #34495e; }
+.nav-arrow.left { left: 20px; }
+.nav-arrow.right { right: 20px; }
+
+/* Flechas dentro del dashboard (más pequeñas y planas) */
+.dashboard .arrow {
+  background: none;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.dashboard .arrow:hover {
+  transform: scale(1.1);
 }
