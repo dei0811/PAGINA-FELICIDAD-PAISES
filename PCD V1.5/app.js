@@ -366,3 +366,11 @@ window.onload = function(){
   const first = countryNames[0];
   updateOriginalTooltips(first);
 };
+window.addEventListener("resize", () => {
+  if (typeof chartNormalized !== "undefined") chartNormalized.resize();
+  if (typeof chartGDP !== "undefined") chartGDP.resize();
+  if (typeof chartLife !== "undefined") chartLife.resize();
+  if (typeof chartIneq !== "undefined") chartIneq.resize();
+  if (typeof chartEval !== "undefined") chartEval.resize();
+  if (typeof compareChart !== "undefined") compareChart.resize();
+});
