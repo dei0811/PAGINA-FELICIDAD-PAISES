@@ -235,3 +235,237 @@ header nav button.active {
 header nav button {
   transition: all 0.3s ease;
 }
+/* ===================== HERO CARRUSEL ======================= */
+
+.hero-carousel {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo del carrusel */
+.carousel-images img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+  filter: brightness(0.70);
+}
+
+.carousel-images img.active {
+  opacity: 1;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+.carousel-indicators .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.carousel-indicators .dot.active {
+  background: white;
+  transform: scale(1.25);
+}
+
+/* Contenido HERO */
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  max-width: 900px;
+  padding: 20px;
+}
+
+#heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+
+  background: linear-gradient(90deg, #FF6F61, #FFCC70);
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animación del gradiente del título */
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+/* Botones */
+.hero-buttons .cta {
+  padding: 12px 28px;
+  border-radius: 12px;
+  margin: 10px;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  color: white;
+  border: 2px solid white;
+  transition: 0.3s;
+}
+
+.hero-buttons .cta:hover {
+  background: white;
+  color: #FF6F61;
+}
+
+/* HEADER TRANSPARENTE EN HERO */
+header.transparent {
+  background: rgba(255,255,255,0) !important;
+  box-shadow: none !important;
+}
+/* ===================== HERO CARRUSEL ======================= */
+
+.hero-carousel {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondos */
+.carousel-images img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+  filter: brightness(0.75);
+}
+.carousel-images img.active {
+  opacity: 1;
+}
+
+/* Indicadores tipo rayas */
+.carousel-indicators {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 14px;
+  z-index: 20;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+.carousel-indicators.hide {
+  opacity: 0;
+}
+
+.carousel-indicators .dot {
+  width: 40px;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-indicators .dot.active {
+  background: white;
+  transform: scale(1.15);
+}
+
+/* Contenido */
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Título con gradiente animado */
+#heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #FF6F61, #FFCC70);
+  background-size: 200% 200%;
+  animation: gradientMove 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+/* Subtítulo con contraste automático */
+.hero-content p.lead {
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.5s ease;
+}
+
+/* Botones */
+.hero-buttons .cta {
+  padding: 12px 28px;
+  border-radius: 12px;
+  margin: 10px;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  color: white;
+  border: 2px solid white;
+  transition: 0.3s;
+}
+.hero-buttons .cta:hover {
+  background: white;
+  color: #FF6F61;
+}
+
+/* Header transparente en hero */
+header.transparent {
+  background: rgba(255,255,255,0) !important;
+  box-shadow: none !important;
+}
+
+/* Ocultar indicadores nach 3 seg sin mouse */
+body.mouse-idle .carousel-indicators {
+  opacity: 0;
+}
+header {
+  transition: background-color 0.45s ease;
+  background-color: rgba(255, 255, 255, 0.95); /* Fondo visible cuando baja */
+  backdrop-filter: blur(6px);
+}
+
+/* Cuando está en el hero → fondo transparente PERO EL CONTENIDO SE VE */
+header.transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+
+header.show-header {
+  opacity: 1;
+  transform: translateY(0);
+}

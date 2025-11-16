@@ -29,24 +29,39 @@
   </header>
 
   <!-- HERO -->
-  <section class="section" id="sec-hero" style="position:relative;">
-    <div class="hero-content">
-      <h2 id="heroTitle">Bienvenido a <strong>Un Mundo Feliz</strong></h2>
+  <section class="hero-carousel section" id="sec-hero">
 
-      <p class="lead">
-        Comparativa visual del bienestar y la felicidad según el World Happiness Report (2012–2024).
-      </p>
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-images">
+    <img src="Imagenes\Imagenes_felices\F_01.JPG" class="active">
+    <img src="Imagenes\Imagenes_felices\F_02.jpg">
+    <img src="Imagenes\Imagenes_felices\F_03.jpg">
+    <img src="Imagenes\Imagenes_felices\F_04.jpg">
+    <img src="Imagenes\Imagenes_felices\F_05.jpg">
+  </div>
 
-      <p>
-        Explora tendencias, compara países y descubre qué factores contribuyen más al bienestar.
-      </p>
+  <div class="carousel-indicators">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
 
-      <div class="hero-buttons">
-        <button onclick="showSection(3)" class="cta">Explorar resumen</button>
-        <button onclick="showSection(6)" class="cta secondary">Ver evolución por país</button>
-      </div>
+
+  <!-- Contenido -->
+  <div class="hero-content">
+    <h2 id="heroTitle">Bienvenido a <strong>Un Mundo Feliz</strong></h2>
+    <p class="lead">Comparativa visual del bienestar según el World Happiness Report.</p>
+
+    <div class="hero-buttons">
+      <button onclick="showSection(3)" class="cta">Explorar resumen</button>
+      <button onclick="showSection(6)" class="cta secondary">Ver evolución por país</button>
     </div>
+  </div>
+
   </section>
+
 
   <!-- SECCIÓN 1: Qué es la felicidad -->
   <section class="section" id="sec-1" style="--bg:#FFF8D6;">
@@ -263,6 +278,8 @@
   <script src="app.js"></script>
   <script src="navigation.js"></script>
   <script src="animacion.js"></script> <!-- JS modular de animaciones -->
+  <script src="carousel.js"></script>
+
 
 </body>
 </html>
