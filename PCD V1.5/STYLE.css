@@ -658,3 +658,30 @@ header.transparent .logo-emoji {
   padding: 18px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
+/* FONDOS PARA QUE NO SE TRASLUDE EL CARRUSEL */
+.section {
+  background: rgba(247, 245, 240, 0.94);
+  backdrop-filter: blur(4px);
+}
+
+/* Sección de gráficas: evita que se filtre el carrusel */
+#sec-world,
+#world-social,
+#world-ranking,
+#world-compare {
+    background: rgba(255, 255, 255, 0.85); /* ajusta 0.80–0.95 */
+    backdrop-filter: blur(8px);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.slide-a-canvas {
+  background: #ffffff;      /* fondo blanco sólido */
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#graphSlideA {
+  background: #ffffff !important; /* por si el canvas es transparente */
+  border-radius: 12px;
+}
