@@ -454,3 +454,207 @@ header.transparent .logo-text {
 header.transparent .logo-emoji {
   color: white; /* o si quieres otro color, aquí lo cambias */
 }
+/* ============================== */
+/* SECCIÓN: PERCEPCIÓN SOCIAL     */
+/* ============================== */
+
+#world-social {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.6s ease-out;
+}
+
+.social-wrapper {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.country-select {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.country-select select {
+  padding: 10px 18px;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  border: 2px solid #ff6f61;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.social-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.social-info {
+  background: rgba(0,0,0,0.55);
+  color: white;
+  padding: 25px;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  backdrop-filter: blur(6px);
+}
+
+.social-chart {
+  background: rgba(255,255,255,0.85);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.social-events {
+  margin-top: 40px;
+}
+
+.social-events h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+#eventsList li {
+  margin: 6px 0;
+  font-size: 1.05rem;
+}
+/* locura*/
+/* ========== Social minimal layout ========== */
+.social-wrapper { width: 100%; max-width: 1100px; margin: 0 auto; gap: 18px; display: flex; flex-direction: column; align-items: stretch; }
+
+.subsection-title { font-size: 1.6rem; margin-bottom: 12px; font-weight:700; color:#333; text-align:center; }
+
+/* Top block */
+.social-block.minimal { display: flex; flex-direction: column; gap: 14px; }
+
+.social-top { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+
+.country-select label { font-weight:600; margin-right:8px; color:#333;}
+#countryPicker { padding:8px 10px; border-radius:8px; border:1px solid #e3e3e3; background:white; min-width:160px; }
+
+/* Info */
+.social-info { flex:1; min-width:220px; margin-left: 10px; }
+.social-info h3 { margin-bottom:6px; font-size:1.05rem; color:#222; }
+
+/* SLIDER A */
+.slider-a-controls { display:flex; align-items:center; gap:12px; justify-content:center; }
+.btn-plain { background:transparent; border:none; font-size:1.5rem; cursor:pointer; padding:8px 12px; opacity:0.85; }
+.btn-plain:hover { opacity:1; transform:translateY(-2px); }
+
+.slide-a-canvas { width:100%; max-width:900px; height:320px; }
+.slide-a-canvas canvas { width:100% !important; height:100% !important; display:block; }
+
+/* SLIDER indicators (pills) */
+.minimal-indicators { display:flex; gap:8px; justify-content:center; margin-top:8px; }
+.minimal-indicators .pill { padding:6px 12px; border-radius:20px; background:rgba(0,0,0,0.06); font-weight:600; font-size:0.9rem; cursor:pointer; }
+.minimal-indicators .pill.active { background:rgba(0,0,0,0.12); }
+
+/* SOCIO (small) */
+.socio-block.minimal { margin-top:12px; display:flex; flex-direction:column; gap:10px; align-items:stretch; }
+.socio-header { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.socio-controls { display:flex; gap:10px; align-items:center; }
+.country-name { font-weight:700; color:#333; margin:0 10px; text-transform:uppercase; letter-spacing:0.6px; }
+
+.slide-b-canvas { width:100%; max-width:720px; height:180px; margin:0 auto; }
+.slide-b-canvas canvas { width:100% !important; height:100% !important; display:block; }
+
+.tooltip-small { text-align:center; color:#444; font-size:0.95rem; margin-top:6px; }
+
+/* make sure charts container doesn't overflow on small screens */
+@media (max-width:800px) {
+  .slide-a-canvas { height:260px; }
+  .slide-b-canvas { height:160px; }
+  .social-top { flex-direction:column; align-items:flex-start; }
+}
+/* CONTENEDOR PRINCIPAL */
+.compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* BOTÓN PRINCIPAL */
+.compare-btn {
+  background: #0077cc;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.25s ease;
+}
+
+.compare-btn:hover {
+  background: #005fa3;
+}
+
+.compare-btn .arrow {
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+/* PANEL INTERNO */
+.dropdown-panel {
+  display: none;
+  margin-top: 8px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.dropdown-panel.show {
+  display: block;
+}
+
+/* OPCIONES */
+.dropdown-panel label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 6px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+.dropdown-panel label:hover {
+  background: #f0f7ff;
+}
+
+.dropdown-panel input[type="checkbox"] {
+  accent-color: #0077cc;
+}
+
+/* LISTA DE SELECCIONADOS */
+.selected-list {
+  font-size: 0.95rem;
+  background: #eef8ff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* GRÁFICA */
+.compare-chart-container {
+  display: none;
+  margin-top: 5px;
+}
+
+.compare-box {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}

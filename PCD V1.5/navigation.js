@@ -1,88 +1,58 @@
-const sections = document.querySelectorAll(".section");
+// ======================================================
+// NAVEGACIÓN ENTRE SECCIONES (VERSIÓN REDUCIDA)
+// Solo 6 secciones principales según tu HTML
+// ======================================================
+
+// Capturar solo las secciones principales
+const sections = [
+  document.getElementById("sec-hero"),        // 0
+  document.getElementById("sec-intro"),       // 1
+  document.getElementById("sec-world"),       // 2
+  document.getElementById("sec-continents"),  // 3
+  document.getElementById("sec-bibliography"),// 4
+  document.getElementById("sec-credits")      // 5
+];
+
 let currentSection = 0;
 
+// =============================
+// MOSTRAR SECCIÓN
+// =============================
 function showSection(index) {
-  if (index < 0) index = sections.length - 1;
-  if (index >= sections.length) index = 0;
+  if (!sections[index]) return;
   currentSection = index;
-  sections[index].scrollIntoView({ behavior: "smooth", block: "start" });
+
+  sections[index].scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 }
 
+// =============================
+// SIGUIENTE / ANTERIOR
+// =============================
 function nextSection() {
-  showSection(currentSection + 1);
+  let next = currentSection + 1;
+  if (next >= sections.length) next = 0;
+  showSection(next);
 }
 
 function prevSection() {
-  showSection(currentSection - 1);
+  let prev = currentSection - 1;
+  if (prev < 0) prev = sections.length - 1;
+  showSection(prev);
 }
 
-// Detectar la sección visible al hacer scroll manual
+// =============================
+// ACTUALIZAR SECCIÓN ACTUAL (scroll manual)
+// =============================
 window.addEventListener("scroll", () => {
-  let scrollY = window.scrollY;
+  let winMid = window.innerHeight * 0.45;
+
   sections.forEach((sec, i) => {
     const rect = sec.getBoundingClientRect();
-    if (rect.top >= -window.innerHeight / 3 && rect.top < window.innerHeight / 2) {
+    if (rect.top <= winMid && rect.bottom >= winMid) {
       currentSection = i;
     }
   });
-});
-
-// ====== RESUMEN GLOBAL ======
-function calculateGlobalData() {
-  const countries = Object.keys(DATA);
-  document.getElementById("countCountries").textContent = countries.length;
-
-  let growth = [];
-
-  countries.forEach(c => {
-    const arr = DATA[c].evaluation;
-    const first = arr[0];
-    const last = arr[arr.length - 1];
-    growth.push({ country: c, diff: last - first });
-  });
-
-  growth.sort((a,b)=>b.diff - a.diff);
-
-  document.getElementById("bestGrowth").textContent =
-    `${growth[0].country} (+${growth[0].diff.toFixed(2)})`;
-
-  const last = growth[growth.length - 1];
-  document.getElementById("worstGrowth").textContent =
-    `${last.country} (${last.diff.toFixed(2)})`;
-
-  // resumen global textual
-  const avgFirst = growth.reduce((s,c)=>s + DATA[c.country].evaluation[0], 0) / countries.length;
-  const avgLast  = growth.reduce((s,c)=>s + DATA[c.country].evaluation.slice(-1)[0], 0) / countries.length;
-
-  document.getElementById("global-summary").textContent =
-    `En promedio, la felicidad mundial pasó de ${avgFirst.toFixed(2)} en 2012 a ${avgLast.toFixed(2)} en 2024, mostrando una variación de ${(avgLast - avgFirst).toFixed(2)} puntos.`;
-}
-
-// ====== RANKINGS ======
-function generateRankings() {
-  const countries = Object.keys(DATA);
-
-  let current = countries.map(c => ({
-    name: c,
-    val: DATA[c].evaluation.slice(-1)[0]
-  }));
-
-  current.sort((a,b)=>b.val - a.val);
-
-  // top 5
-  document.getElementById("top5").innerHTML =
-    current.slice(0,5).map(c =>
-      `<li>${c.name}: ${c.val.toFixed(2)}</li>`
-    ).join("");
-
-  // bottom 5
-  document.getElementById("bottom5").innerHTML =
-    current.slice(-5).map(c =>
-      `<li>${c.name}: ${c.val.toFixed(2)}</li>`
-    ).join("");
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  calculateGlobalData();
-  generateRankings();
 });

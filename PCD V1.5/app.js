@@ -1,376 +1,386 @@
-// =========================== dashboard.js ===========================
+// ========================================================
+// ===============  UN MUNDO FELIZ — app.js  ==============
+// ===============    VERSIÓN UNIFICADA 2025   ============
+// ========================================================
 
-// === Parte 0: Enlaza tu archivo de datasets antes de este JS ===
-// <script src="DATOS.js"></script>
-// <script src="dashboard.js"></script>
 
-// ================= Datos =================
-// const datasets = { Colombia: [...], Dinamarca: [...], "Estados Unidos": [...], Peru: [...], Afganistan: [...] }
+// ========================================================
+// =============== VARIABLES GLOBALES ======================
+// ========================================================
 
-// ================= Métricas y colores =================
+let slideAChart = null;
+let slideBChart = null;
+let compareChart = null;
 
-let chartGDP = null;
-let chartLife = null;
-let chartIneq = null;
-let chartEval = null;
+let slideAIndex = 0; // 0 = evaluación, 1 = normalizadas
+let slideBIndex = 0; // 0 = PIB, 1 = vida, 2 = desigualdad
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("datasets en app.js:", datasets); // solo para verificar
-  loadDropdown();   // aquí ya puedes llenar el menú
-  updateCard();     // opcional, si quieres que muestre el primer país
-});
+const picker = document.getElementById("countryPicker");
+const graphA = document.getElementById("graphSlideA");
+const graphB = document.getElementById("graphSlideB");
 
-const metrics = [
-  { key:"socialSupport", label:"Apoyo Social" },
-  { key:"freedom", label:"Libertad" },
-  { key:"generosity", label:"Generosidad" },
-  { key:"corruption", label:"Corrupción" }
-];
-const colors = ["#ff6f61","#4bc0c0","#9966ff","#36a2eb"];
+const countryNameEl = document.getElementById("countryName");
+const socialTitleEl = document.getElementById("socialTitle");
+const socialTextEl = document.getElementById("socialText");
+const eventsListEl = document.getElementById("eventsList");
+const tooltipSmall = document.getElementById("tooltipSmall");
 
-// ================= Normalización global mejorada =================
-function buildNormalizedDatasets(raw, metricsDef) {
-  const norm = {};
+const indicatorA = document.querySelectorAll(".slide-a-indicator .pill");
+const indicatorB = document.querySelectorAll(".slide-b-indicator .pill");
 
-  // Calcular min y max global para cada métrica
-  const minByKey = {};
-  const maxByKey = {};
-  for (const m of metricsDef) {
-    const vals = [];
-    for (const country in raw) {
-      raw[country].forEach(r => {
-        if (r[m.key] != null) vals.push(r[m.key]);
-      });
-    }
-    minByKey[m.key] = vals.length ? Math.min(...vals) : 0;
-    maxByKey[m.key] = vals.length ? Math.max(...vals) : 1;
-  }
+const sectionSocial = document.getElementById("world-social");
 
-  // Normalizar
-  for (const country in raw) {
-    norm[country] = raw[country].map(r => {
-      const out = { year: r.year };
+const countryNames = Object.keys(datasets);
 
-      for (const m of metricsDef) {
-        const v = r[m.key];
-        if (v == null) {
-          out[m.key] = null;
-          continue;
-        }
 
-        // Caso métricas en [0,1] -> escala directa a [0,10]
-        if (["socialSupport", "freedom", "generosity", "corruption"].includes(m.key)) {
-          out[m.key] = v * 10;
-        } else {
-          // Normalización global min-max -> escala 0–10
-          const range = maxByKey[m.key] - minByKey[m.key];
-          out[m.key] = range === 0 ? 5 : ((v - minByKey[m.key]) / range) * 10;
-        }
-      }
+// ========================================================
+// ==================  IMÁGENES DE FONDO  =================
+// ========================================================
 
-      return out;
+const countryBackgrounds = {
+  "Afganistán": "Imagenes/Imagenes_Paises/afgan_feliz.jpg",
+  "Colombia": "Imagenes/Imagenes_Paises/colombia_feliz.jpg",
+  "Dinamarca": "Imagenes/Imagenes_Paises/dinamarca_feliz.jpg",
+  "Estados Unidos": "Imagenes/Imagenes_Paises/gringo_feliz.jpg",
+  "Perú": "Imagenes/Imagenes_Paises/Peru_feliz.jpg"
+};
+
+
+// ========================================================
+// ==================  EVENTOS POR PAÍS  ==================
+// ========================================================
+
+const historicalEvents = {
+  "Afganistán": [
+    { year: 2013, text: "Periodo de inestabilidad que dificultó datos." },
+    { year: 2014, text: "Retiro de tropas internacionales." },
+    { year: 2021, text: "Toma del poder por los Talibán." }
+  ],
+  "Colombia": [
+    { year: 2016, text: "Acuerdo de paz mejoró la percepción social." },
+    { year: 2020, text: "Pandemia afectó empleo y expectativas." }
+  ],
+  "Dinamarca": [
+    { year: 2015, text: "Alta cohesión social y bienestar." }
+  ],
+  "Estados Unidos": [
+    { year: 2016, text: "Polarización política." }
+  ],
+  "Perú": [
+    { year: 2017, text: "Crisis política afectó confianza." }
+  ]
+};
+
+
+// ========================================================
+// ================ FUNCIONES AUXILIARES ===================
+// ========================================================
+
+function safeDestroy(chart){
+  try { if (chart) chart.destroy(); } catch(e){}
+}
+
+
+// ========================================================
+// ======================= SLIDE A =========================
+// ========================================================
+
+function renderSlideA(country){
+  const data = datasets[country];
+  const years = data.map(e => e.year);
+
+  safeDestroy(slideAChart);
+  const ctx = graphA.getContext("2d");
+
+  if (slideAIndex === 0){
+    slideAChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: years,
+        datasets: [{
+          label: "Evaluación de vida",
+          data: data.map(e => e.lifeEval ?? null),
+          borderColor: "#ff6f61",
+          tension: 0.3,
+          spanGaps: true
+        }]
+      },
+      options: { responsive:true, maintainAspectRatio:false }
+    });
+
+  } else {
+    slideAChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: years,
+        datasets: [
+          { label:"Apoyo social (norm.)", data: data.map(e=>e.socialSupport*10), borderColor:"#ff6f61", tension:0.3 },
+          { label:"Libertad (norm.)", data: data.map(e=>e.freedom*10), borderColor:"#4bc0c0", tension:0.3 },
+          { label:"Generosidad (norm.)", data: data.map(e=>e.generosity*10), borderColor:"#9966ff", tension:0.3 },
+          { label:"Corrupción (norm.)", data: data.map(e=>e.corruption*10), borderColor:"#36a2eb", tension:0.3 }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ suggestedMin:0, suggestedMax:10 } } }
     });
   }
 
-  return norm;
+  indicatorA.forEach(p => p.classList.toggle("active", Number(p.dataset.index) === slideAIndex));
 }
 
-// ================= Variables globales =================
-let chartInstance = null, currentIndex = 0, compareChart = null;
-const countryNames = Object.keys(datasets);
-const datasetsNorm = buildNormalizedDatasets(datasets, metrics);
 
-/* ============= [AÑADIDO] Tooltips por país ============= */
+// ========================================================
+// ======================= SLIDE B =========================
+// ========================================================
 
-// Busca la clave real en datasets, sin importar acentos o mayúsculas
-function findCountryKeyLike(targetName){
-  const t = targetName.normalize("NFD").replace(/\p{Diacritic}/gu,"").toLowerCase();
-  return countryNames.find(n => n.normalize("NFD").replace(/\p{Diacritic}/gu,"").toLowerCase() === t);
-}
-
-// Crea base por defecto para todos los países para evitar errores si falta alguno
-const tooltipsByCountry = {};
-for (const c of countryNames) {
-  tooltipsByCountry[c] = {
-    gdp: "PIB per cápita: sin detalle específico.",
-    life: "Esperanza de vida: sin detalle específico.",
-    ineq: "Desigualdad: sin detalle específico.",
-    eval: "Evaluación de vida: sin detalle específico."
-  };
-}
-
-// Sobrescribe con tus textos para los 5 países (se mapea al nombre real del dataset)
-const kCol = findCountryKeyLike("Colombia");
-if (kCol) tooltipsByCountry[kCol] = {
-  gdp: "PIB per cápita creció hasta 2019, cayó en 2020 y se recuperó en 2024 con 18,4 mil USD.",
-  life: "Esperanza de vida cayó de 67,9 en 2019 a 65 en 2021 por la pandemia.",
-  ineq: "Desigualdad alta y estable (2,2–2,7).",
-  eval: "Evaluación de vida: 6,4 (2013–15) → 5,6 (2021–22) → 6,0 (2024)."
-};
-
-const kDin = findCountryKeyLike("Dinamarca");
-if (kDin) tooltipsByCountry[kDin] = {
-  gdp: "PIB muy alto y estable, con ingresos de nivel mundial.",
-  life: "Esperanza de vida cercana a 82 años.",
-  ineq: "Muy baja desigualdad, de las menores globalmente.",
-  eval: "Felicidad por encima de 7,5."
-};
-
-const kUSA = findCountryKeyLike("Estados Unidos");
-if (kUSA) tooltipsByCountry[kUSA] = {
-  gdp: "PIB per cápita entre 60–76 mil USD.",
-  life: "Esperanza de vida alta, aunque descendió tras la pandemia.",
-  ineq: "Alta desigualdad comparada con Europa.",
-  eval: "Evaluación de vida alrededor de 7 puntos."
-};
-
-const kPeru = findCountryKeyLike("Perú") || findCountryKeyLike("Peru");
-if (kPeru) tooltipsByCountry[kPeru] = {
-  gdp: "PIB y felicidad menores que Colombia.",
-  life: "Esperanza de vida algo inferior a la colombiana.",
-  ineq: "Problemas persistentes de corrupción y desigualdad.",
-  eval: "Evaluación de vida estable pero inferior a Colombia."
-};
-
-const kAfg = findCountryKeyLike("Afganistán") || findCountryKeyLike("Afganistan");
-if (kAfg) tooltipsByCountry[kAfg] = {
-  gdp: "PIB per cápita muy bajo.",
-  life: "Esperanza de vida reducida, una de las más bajas del mundo.",
-  ineq: "Alta desigualdad e inestabilidad.",
-  eval: "Evaluación de vida cercana a 1,3."
-};
-
-// Escribe los textos en los tooltips del HTML (solo si existen)
-function updateOriginalTooltips(country){
-  const t = tooltipsByCountry[country] || {};
-  const elGDP  = document.getElementById("tooltipGDP");
-  const elLife = document.getElementById("tooltipLife");
-  const elIneq = document.getElementById("tooltipIneq");
-  const elEval = document.getElementById("tooltipEval");
-
-  if (elGDP)  elGDP.textContent  = t.gdp  || "Sin detalle.";
-  if (elLife) elLife.textContent = t.life || "Sin detalle.";
-  if (elIneq) elIneq.textContent = t.ineq || "Sin detalle.";
-  if (elEval) elEval.textContent = t.eval || "Sin detalle.";
-}
-
-/* ============= FIN tooltips ============= */
-
-
-// ================= Slider normalizado =================
-function updateCard(){
-  const countryName = countryNames[currentIndex];
-  const dataNorm = datasetsNorm[countryName];
-  document.getElementById("countryName").innerText = `Gráfica de ${countryName}`;
-  
-  if(chartInstance) chartInstance.destroy();
-  
-  const ctx = document.getElementById("graphNormalized").getContext("2d");
-  chartInstance = new Chart(ctx,{
-    type:"line",
-    data:{
-      labels: dataNorm.map(d=>d.year),
-      datasets: metrics.map((m,i)=>({
-        label: `${m.label} (norm.)`,
-        data: dataNorm.map(d=>d[m.key]??null),
-        borderColor: colors[i%colors.length],
-        backgroundColor: colors[i%colors.length]+"33",
-        tension: 0.3,
-        fill: false,
-        spanGaps: true,
-        pointRadius: 3
-      }))
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:true,
-      plugins:{ legend:{position:"bottom"}, title:{display:true, text:`Indicadores normalizados (0–10) - ${countryName}`}},
-      scales:{y:{suggestedMin:0, suggestedMax:10}}
-    }
-  });
-
-  // Redibuja las gráficas originales
-  updateOriginalCharts(countryName);
-
-  // === [AÑADIDO] Actualiza tooltips del panel "original" según el país actual ===
-  updateOriginalTooltips(countryName);
-}
-
-function updateOriginalCharts(country) {
+function renderSlideB(country){
   const data = datasets[country];
-  if (!data) return;
+  const years = data.map(e => e.year);
 
-  // PIB
-  if (chartGDP) chartGDP.destroy();
-  chartGDP = new Chart(document.getElementById("graphGDP"), {
+  const keys = ["gdp","lifeExpectancy","inequality"];
+  const labels = ["PIB per cápita","Esperanza de vida","Desigualdad"];
+  const colors = ["#f39c12","#27ae60","#8e44ad"];
+
+  const key = keys[slideBIndex];
+  const label = labels[slideBIndex];
+  const color = colors[slideBIndex];
+
+  const values = data.map(e => e[key] ?? null);
+
+  safeDestroy(slideBChart);
+
+  const ctx = graphB.getContext("2d");
+  slideBChart = new Chart(ctx, {
     type: "line",
     data: {
-      labels: data.map(d => d.year),
-      datasets: [{
-        label: "PIB per cápita",
-        data: data.map(d => d.gdp),
-        borderColor: "#f39c12",
-        tension: 0.3,
-        spanGaps: true
+      labels: years,
+      datasets:[{
+        label,
+        data: values,
+        borderColor: color,
+        tension:0.3,
+        spanGaps:true
       }]
     },
-    options: { responsive: true, scales: { y: { suggestedMin: 0, suggestedMax: 80000 } } }
+    options:{ responsive:true, maintainAspectRatio:false }
   });
 
-  // Esperanza de vida
-  if (chartLife) chartLife.destroy();
-  chartLife = new Chart(document.getElementById("graphLife"), {
-    type: "line",
-    data: {
-      labels: data.map(d => d.year),
-      datasets: [{
-        label: "Esperanza de vida",
-        data: data.map(d => d.lifeExpectancy),
-        borderColor: "#27ae60",
-        tension: 0.3,
-        spanGaps: true
-      }]
-    },
-    options: { responsive: true, scales: { y: { suggestedMin: 40, suggestedMax: 90 } } }
-  });
+  tooltipSmall.textContent = `Mostrando: ${label}. Último valor: ${values.filter(v=>v!=null).slice(-1)[0] ?? "N/A"}.`;
 
-  // Desigualdad
-  if (chartIneq) chartIneq.destroy();
-  chartIneq = new Chart(document.getElementById("graphIneq"), {
-    type: "line",
-    data: {
-      labels: data.map(d => d.year),
-      datasets: [{
-        label: "Desigualdad",
-        data: data.map(d => d.inequality),
-        borderColor: "#8e44ad",
-        tension: 0.3,
-        spanGaps: true
-      }]
-    },
-    options: { responsive: true, scales: { y: { suggestedMin: 0, suggestedMax: 3 } } }
-  });
+  indicatorB.forEach(p => p.classList.toggle("active", Number(p.dataset.index) === slideBIndex));
+}
 
-  // Evaluación de vida
-  if (chartEval) chartEval.destroy();
-  chartEval = new Chart(document.getElementById("graphEval"), {
-    type: "line",
-    data: {
-      labels: data.map(d => d.year),
-      datasets: [{
-        label: "Evaluación de vida",
-        data: data.map(d => d.lifeEval),
-        borderColor: "#c0392b",
-        tension: 0.3,
-        spanGaps: true
-      }]
-    },
-    options: { responsive: true, scales: { y: { suggestedMin: 0, suggestedMax: 10 } } }
+
+// ========================================================
+// ============ INTERPRETACIÓN Y EVENTOS ==================
+// ========================================================
+
+function updateBackground(country){
+  const img = countryBackgrounds[country];
+  sectionSocial.style.backgroundImage = img
+    ? `linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('${img}')`
+    : "";
+}
+
+function updateEvents(country){
+  const list = historicalEvents[country] || [];
+  eventsListEl.innerHTML = "";
+
+  if (!list.length){
+    eventsListEl.innerHTML = "<li>No hay eventos relevantes registrados.</li>";
+    return;
+  }
+
+  list.forEach(ev=>{
+    const li = document.createElement("li");
+    li.textContent = `${ev.year} — ${ev.text}`;
+    eventsListEl.appendChild(li);
   });
 }
 
-function prevCard(){ 
-  currentIndex = (currentIndex - 1 + countryNames.length) % countryNames.length; 
-  updateCard(); 
-}
-function nextCard(){ 
-  currentIndex = (currentIndex + 1) % countryNames.length; 
-  updateCard(); 
-}
+function updateInterpretation(country){
+  const arr = datasets[country];
+  const first = arr.find(r=>r.lifeEval!=null);
+  const last = [...arr].reverse().find(r=>r.lifeEval!=null);
 
-// ================= Gráficas originales =================
-function buildOriginalCharts(){
-  const ctxGDP = document.getElementById("graphGDP").getContext("2d");
-  const ctxLife = document.getElementById("graphLife").getContext("2d");
-  const ctxIneq = document.getElementById("graphIneq").getContext("2d");
-  const ctxEval = document.getElementById("graphEval").getContext("2d");
+  const change = ((last?.lifeEval ?? 0) - (first?.lifeEval ?? 0)).toFixed(2);
 
-  const country0 = countryNames[0]; // Tomamos el primer país como ejemplo
-  const years = datasets[country0].map(d=>d.year);
-
-  new Chart(ctxGDP,{ type:"line", data:{ labels:years, datasets:[{label:"PIB", data:datasets[country0].map(d=>d.gdp), borderColor:"#ff6f61", backgroundColor:"#ff6f6133", tension:0.3, spanGaps:true}]}, options:{responsive:true, plugins:{legend:{position:"bottom"}}} });
-  new Chart(ctxLife,{ type:"line", data:{ labels:years, datasets:[{label:"Esperanza de vida", data:datasets[country0].map(d=>d.lifeExpectancy), borderColor:"#4bc0c0", backgroundColor:"#4bc0c033", tension:0.3, spanGaps:true}]}, options:{responsive:true, plugins:{legend:{position:"bottom"}}} });
-  new Chart(ctxIneq,{ type:"line", data:{ labels:years, datasets:[{label:"Desigualdad", data:datasets[country0].map(d=>d.inequality), borderColor:"#9966ff", backgroundColor:"#9966ff33", tension:0.3, spanGaps:true}]}, options:{responsive:true, plugins:{legend:{position:"bottom"}}} });
-  new Chart(ctxEval,{ type:"line", data:{ labels:years, datasets:[{label:"Evaluación de vida", data:datasets[country0].map(d=>d.lifeEval), borderColor:"#36a2eb", backgroundColor:"#36a2eb33", tension:0.3, spanGaps:true}]}, options:{responsive:true, plugins:{legend:{position:"bottom"}}} });
+  socialTitleEl.textContent = `Percepción social en ${country}`;
+  socialTextEl.textContent = `Entre ${arr[0].year} y ${arr[arr.length-1].year}, la evaluación de vida cambió ${change} puntos.`;
 }
 
-// ================= Dropdown comparador =================
-function toggleDropdown(){ 
-  document.getElementById("dropdown").classList.toggle("show"); 
+
+// ========================================================
+// ===================== APPLY COUNTRY ====================
+// ========================================================
+
+function applyCountry(country){
+  updateBackground(country);
+  updateEvents(country);
+  updateInterpretation(country);
+  countryNameEl.textContent = country.toUpperCase();
+
+  renderSlideA(country);
+  renderSlideB(country);
+}
+
+
+// ========================================================
+// =============== INIT SOCIAL SECTION =====================
+// ========================================================
+
+function initSocialSection(){
+  picker.innerHTML = "";
+  countryNames.forEach(c=>{
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    picker.appendChild(opt);
+  });
+
+  picker.value = countryNames[0];
+  applyCountry(countryNames[0]);
+
+  picker.addEventListener("change", ()=>{
+    slideAIndex = 0;
+    slideBIndex = 0;
+    applyCountry(picker.value);
+  });
+
+  document.getElementById("slideAprev").onclick = ()=>{
+    slideAIndex = (slideAIndex - 1 + 2) % 2;
+    renderSlideA(picker.value);
+  };
+
+  document.getElementById("slideAnext").onclick = ()=>{
+    slideAIndex = (slideAIndex + 1) % 2;
+    renderSlideA(picker.value);
+  };
+
+  document.getElementById("slideBprev").onclick = ()=>{
+    slideBIndex = (slideBIndex - 1 + 3) % 3;
+    renderSlideB(picker.value);
+  };
+
+  document.getElementById("slideBnext").onclick = ()=>{
+    slideBIndex = (slideBIndex + 1) % 3;
+    renderSlideB(picker.value);
+  };
+
+  indicatorA.forEach(p=>{
+    p.addEventListener("click", ()=>{
+      slideAIndex = Number(p.dataset.index);
+      renderSlideA(picker.value);
+    });
+  });
+
+  indicatorB.forEach(p=>{
+    p.addEventListener("click", ()=>{
+      slideBIndex = Number(p.dataset.index);
+      renderSlideB(picker.value);
+    });
+  });
+
+  window.addEventListener("resize", ()=>{
+    clearTimeout(window._chartResizeTimer);
+    window._chartResizeTimer = setTimeout(()=>{
+      renderSlideA(picker.value);
+      renderSlideB(picker.value);
+    },200);
+  });
+}
+
+
+// ========================================================
+// ================= COMPARADOR DE PAÍSES =================
+// ========================================================
+
+function toggleDropdown(){
+  const panel = document.getElementById("dropdown");
+  panel.classList.toggle("show");
+
+  const btn = document.querySelector(".compare-btn");
+  const exp = panel.classList.contains("show");
+
+  btn.setAttribute("aria-expanded", exp);
+  btn.querySelector(".arrow").textContent = exp ? "▲" : "▼";
 }
 
 function loadDropdown(){
-  const dropdown = document.getElementById("dropdown"); 
+  const dropdown = document.getElementById("dropdown");
   dropdown.innerHTML = "";
+
   countryNames.forEach(c=>{
     const label = document.createElement("label");
-    label.innerHTML = `<input type="checkbox" value="${c}" onchange="updateSelected()"> ${c}`;
+    label.innerHTML = `
+      <input type="checkbox" value="${c}" onchange="updateSelected()">
+      ${c}
+    `;
     dropdown.appendChild(label);
   });
 }
 
 function updateSelected(){
-  const selectedList = document.getElementById("selectedList");
-  const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
-  const selected = Array.from(checkboxes).filter(cb=>cb.checked).map(cb=>cb.value);
-  
-  if(selected.length){
-    selectedList.innerText = "Seleccionados: " + selected.join(", ");
-    updateCompareChart(selected);
-  } else {
-    selectedList.innerText = "Ningún país seleccionado";
+  const listEl = document.getElementById("selectedList");
+  const checkboxes = document.querySelectorAll('#dropdown input[type="checkbox"]');
+
+  const selected = Array.from(checkboxes)
+        .filter(cb=>cb.checked)
+        .map(cb=>cb.value);
+
+  if (!selected.length){
+    listEl.textContent = "Ningún país seleccionado";
     document.getElementById("compareChartContainer").style.display = "none";
+    return;
   }
+
+  listEl.textContent = "Seleccionados: " + selected.join(", ");
+  updateCompareChart(selected);
 }
 
-function updateCompareChart(selectedCountries){
+function updateCompareChart(selected){
   const ctx = document.getElementById("compareChart").getContext("2d");
-  if(compareChart) compareChart.destroy();
-  const ds = selectedCountries.map((country,i)=>({
-    label: country,
-    data: datasets[country].map(d=>d.lifeEval??null),
-    borderColor: colors[i%colors.length],
-    backgroundColor: colors[i%colors.length]+"55",
-    tension:0.3,
-    spanGaps:true
-  }));
+
+  safeDestroy(compareChart);
+
+  const datasetsCmp = selected.map(country=>{
+    const arr = datasets[country];
+    return {
+      label: country,
+      data: arr.map(e => e.lifeEval ?? null),
+      tension: 0.3,
+      spanGaps: true
+    };
+  });
+
   compareChart = new Chart(ctx,{
     type:"line",
-    data:{ labels:datasets[selectedCountries[0]].map(d=>d.year), datasets: ds },
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"},title:{display:true,text:"Comparativa de Evaluación de Vida"}} }
+    data:{
+      labels: datasets[selected[0]].map(e=>e.year),
+      datasets: datasetsCmp
+    },
+    options:{ responsive:true, maintainAspectRatio:false }
   });
+
   document.getElementById("compareChartContainer").style.display = "block";
 }
 
-// ================= Cerrar dropdown si clic fuera =================
-window.onclick = function(e){
-  if(!e.target.matches('.dropdown-btn')){
-    const dds=document.getElementsByClassName("dropdown-content");
-    for(let i=0;i<dds.length;i++) if(dds[i].classList.contains('show')) dds[i].classList.remove('show');
+window.addEventListener("click", e=>{
+  const panel = document.getElementById("dropdown");
+  const btn = document.querySelector(".compare-btn");
+
+  if (!panel.contains(e.target) && !btn.contains(e.target)){
+    panel.classList.remove("show");
+    btn.setAttribute("aria-expanded","false");
+    btn.querySelector(".arrow").textContent = "▼";
   }
-}
+});
 
-// ================= Switch view =================
-function switchView(view){
-  document.getElementById("normalizedView").style.display = view==="normalized"? "flex":"none";
-  document.getElementById("originalView").style.display = view==="original"? "flex":"none";
-}
 
-// ================= Inicialización =================
-window.onload = function(){
-  updateCard();
-  buildOriginalCharts();
+// ========================================================
+// ==================== INIT GENERAL =======================
+// ========================================================
+
+document.addEventListener("DOMContentLoaded", ()=>{
   loadDropdown();
-
-  // === [AÑADIDO] Inicializa tooltips con el primer país visible
-  const first = countryNames[0];
-  updateOriginalTooltips(first);
-};
-window.addEventListener("resize", () => {
-  if (typeof chartNormalized !== "undefined") chartNormalized.resize();
-  if (typeof chartGDP !== "undefined") chartGDP.resize();
-  if (typeof chartLife !== "undefined") chartLife.resize();
-  if (typeof chartIneq !== "undefined") chartIneq.resize();
-  if (typeof chartEval !== "undefined") chartEval.resize();
-  if (typeof compareChart !== "undefined") compareChart.resize();
+  initSocialSection();
 });

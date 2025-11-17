@@ -12,7 +12,7 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (sección 0 controla transparencia) -->
   <header>
     <h1>
       <span class="logo-emoji">🌍</span>
@@ -20,269 +20,297 @@
     </h1>
 
     <nav>
-      <button onclick="showSection(0)">Países más felices</button>
-      <button onclick="showSection(1)">Qué es la felicidad</button>
-      <button onclick="showSection(4)">Ranking</button>
-      <button onclick="showSection(5)">Indicadores</button>
-      <button onclick="showSection(6)">Evolución</button>
-      <button onclick="showSection(7)">Continentes</button>
-      <button onclick="showSection(8)">Bibliografía</button>
-      <button onclick="showSection(9)">Créditos</button>
+      <button onclick="showSection(0)">Inicio</button>
+      <button onclick="showSection(1)">Introducción</button>
+      <button onclick="showSection(2)">Felicidad en el mundo</button>
+      <button onclick="showSection(3)">Continentes</button>
+      <button onclick="showSection(4)">Bibliografía</button>
+      <button onclick="showSection(5)">Créditos</button>
     </nav>
   </header>
 
-  <!-- HERO -->
+
+
+  <!-- ========================================================= -->
+  <!-- ======================= SECCIÓN 0 ======================== -->
+  <!-- ========================= HERO =========================== -->
+  <!-- ========================================================= -->
   <section class="hero-carousel section" id="sec-hero">
 
-  <!-- Carrusel de imágenes -->
-  <div class="carousel-images">
-    <img src="Imagenes\Imagenes_felices\F_01.JPG" class="active">
-    <img src="Imagenes\Imagenes_felices\F_02.jpg">
-    <img src="Imagenes\Imagenes_felices\F_03.jpg">
-    <img src="Imagenes\Imagenes_felices\F_04.jpg">
-    <img src="Imagenes\Imagenes_felices\F_05.jpg">
-  </div>
-
-  <div class="carousel-indicators">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-
-
-  <!-- Contenido -->
-  <div class="hero-content">
-    <h2 id="heroTitle">Bienvenido a <strong>Un Mundo Feliz</strong></h2>
-    <p class="lead">Comparativa visual del bienestar según el World Happiness Report.</p>
-
-    <div class="hero-buttons">
-      <button onclick="showSection(3)" class="cta">Explorar resumen</button>
-      <button onclick="showSection(6)" class="cta secondary">Ver evolución por país</button>
+    <!-- Imágenes del carrusel -->
+    <div class="carousel-images">
+      <img src="Imagenes/Imagenes_felices/F_01.JPG" class="active">
+      <img src="Imagenes/Imagenes_felices/F_02.jpg">
+      <img src="Imagenes/Imagenes_felices/F_03.jpg">
+      <img src="Imagenes/Imagenes_felices/F_04.jpg">
+      <img src="Imagenes/Imagenes_felices/F_05.jpg">
     </div>
-  </div>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Contenido del hero -->
+    <div class="hero-content">
+      <h2 id="heroTitle">Bienvenido a <strong>Un Mundo Feliz</strong></h2>
+      <p class="lead">Comparativa visual del bienestar según el World Happiness Report.</p>
+
+      <div class="hero-buttons">
+        <button onclick="showSection(3)" class="cta">Explorar resumen</button>
+        <button onclick="showSection(5)" class="cta secondary">Ver evolución por país</button>
+      </div>
+    </div>
 
   </section>
 
 
-  <!-- SECCIÓN 1: Qué es la felicidad -->
-  <section class="section" id="sec-1" style="--bg:#FFF8D6;">
-    <div class="content">
-      <h2>¿Qué es la felicidad?</h2>
-      <p>La felicidad no depende únicamente de la riqueza material, sino del bienestar integral. Factores como la esperanza de vida, el apoyo social, la libertad personal, la generosidad y la confianza en las instituciones son determinantes clave. Este proyecto explora cómo estos indicadores se entrelazan para formar una visión más humana y global del bienestar.</p>
-      <p>La felicidad se entiende aquí como una experiencia colectiva: un reflejo de la salud emocional, social y económica de los pueblos.</p>
+
+  <!-- ========================================================= -->
+  <!-- ====================== SECCIÓN 1 ========================= -->
+  <!-- ============== INTRODUCCIÓN AL PROYECTO ================= -->
+  <!-- ========================================================= -->
+  <section class="section" id="sec-intro">
+    <!-- 1.1 — Qué es la felicidad -->
+    <section class="section" id="intro-happiness" style="--bg:#FFF8D6;">
+      <div class="content">
+        <h2>¿Qué es la felicidad?</h2>
+        <p>La felicidad no depende únicamente de la riqueza material, sino del bienestar integral. Factores como la esperanza de vida, el apoyo social, la libertad personal, la generosidad y la confianza en las instituciones son determinantes clave.</p>
+        <p>La felicidad se entiende aquí como una experiencia colectiva: un reflejo de la salud emocional, social y económica de los pueblos.</p>
+      </div>
+    </section>
+
+    <!-- 1.2 — Indicadores del bienestar -->
+    <section class="section" id="intro-indicators" style="--bg:#FFF8D6;">
+      <div class="content">
+        <h2>Indicadores del Bienestar</h2>
+        <p>Estos factores influyen significativamente en la percepción de felicidad en los países analizados.</p>
+
+        <div class="indic-grid">
+
+          <div class="indic"><div class="icon">💰</div><h3>PIB per cápita</h3><p>Mide estabilidad económica.</p></div>
+          <div class="indic"><div class="icon">❤️</div><h3>Esperanza de vida</h3><p>Representa salud y seguridad.</p></div>
+          <div class="indic"><div class="icon">🤝</div><h3>Apoyo social</h3><p>Evalúa confianza y redes sociales.</p></div>
+          <div class="indic"><div class="icon">🕊️</div><h3>Libertad personal</h3><p>Capacidad de tomar decisiones.</p></div>
+          <div class="indic"><div class="icon">🏛️</div><h3>Confianza institucional</h3><p>Mide corrupción y estabilidad.</p></div>
+          <div class="indic"><div class="icon">🎁</div><h3>Generosidad</h3><p>Empatía y cooperación.</p></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.3 — Resumen global -->
+    <section class="section" id="intro-global" style="--bg:#F0EFEA;">
+      <div class="content">
+        <h2>Resumen Global del Bienestar</h2>
+        <p id="global-summary">Cargando análisis global...</p>
+
+        <div class="global-cards">
+          <div class="gcard"><h3>🌎 Países analizados</h3><p id="countCountries"></p></div>
+          <div class="gcard"><h3>📈 Mayor crecimiento</h3><p id="bestGrowth"></p></div>
+          <div class="gcard"><h3>📉 Mayor disminución</h3><p id="worstGrowth"></p></div>
+        </div>
+
+        <div class="card" style="margin-top:22px;">
+          <h3>Promedio mundial (2012–2024)</h3>
+          <canvas id="globalAvgChart"></canvas>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+
+  <!-- ========================================================= -->
+  <!-- ====================== SECCIÓN 2 ========================= -->
+  <!-- =============== FELICIDAD A LO LARGO DEL MUNDO ========== -->
+  <!-- ========================================================= -->
+  <section class="section" id="sec-world">
+    <!-- 2.1 — Ranking -->
+    <section class="section" id="world-ranking" style="--bg:#FFE8E8;">
+      <div class="content">
+        <h2>Ranking Internacional</h2>
+        <p>Países más y menos felices según los datos más recientes.</p>
+
+        <div class="rank-container">
+          <div class="rank-block"><h3>🏆 Top 5</h3><ul id="top5"></ul></div>
+          <div class="rank-block"><h3>🔻 Bottom 5</h3><ul id="bottom5"></ul></div>
+        </div>
+
+        <button onclick="showSection(5)" class="cta" style="margin-top:18px;">Ver evolución por país</button>
+      </div>
+    </section>
+
+
+  <!-- SECCIÓN 2 — Percepción Social y Factores Socioeconómicos (REEMPLAZAR) -->
+  <section class="section" id="world-social">
+    <div class="content social-wrapper">
+
+      <h2 class="subsection-title">Percepción Social y Factores Socioeconómicos</h2>
+
+      <!-- BLOQUE A — PERCEPCIÓN SOCIAL (ARRIBA, SLIDER A) -->
+      <div class="social-block minimal">
+
+        <div class="social-top">
+          <div class="country-select">
+            <label for="countryPicker">País</label>
+            <select id="countryPicker" aria-label="Seleccionar país"></select>
+          </div>
+
+          <div class="social-info" id="socialInfo">
+            <h3 id="socialTitle">Selecciona un país</h3>
+            <p id="socialText">Aquí aparecerá un análisis interpretativo basado en los datos.</p>
+          </div>
+        </div>
+
+        <div class="slider-a-controls">
+          <button id="slideAprev" class="btn-plain" aria-label="Anterior slide">⟨</button>
+          <div class="slide-a-canvas">
+            <canvas id="graphSlideA"></canvas>
+          </div>
+          <button id="slideAnext" class="btn-plain" aria-label="Siguiente slide">⟩</button>
+        </div>
+
+        <div class="slide-a-indicator minimal-indicators">
+          <span class="pill active" data-index="0">Evaluación</span>
+          <span class="pill" data-index="1">Métricas norm.</span>
+        </div>
+
+        <div class="social-events" id="socialEvents">
+          <h4>Eventos relevantes</h4>
+          <ul id="eventsList"></ul>
+        </div>
+      </div>
+
+      <!-- BLOQUE B — FACTORES SOCIOECONÓMICOS (ABAJO, SLIDER B pequeño) -->
+      <div class="socio-block minimal">
+        <div class="socio-header">
+          <h3>Factores socioeconómicos</h3>
+          <div class="socio-controls">
+            <button id="slideBprev" class="btn-plain">◂</button>
+            <span id="countryName" class="country-name">—</span>
+            <button id="slideBnext" class="btn-plain">▸</button>
+          </div>
+        </div>
+
+        <div class="slide-b-canvas">
+          <canvas id="graphSlideB"></canvas>
+        </div>
+
+        <div class="slide-b-indicator minimal-indicators">
+          <span class="pill active" data-index="0">PIB</span>
+          <span class="pill" data-index="1">Vida</span>
+          <span class="pill" data-index="2">Desigualdad</span>
+        </div>
+
+        <p id="tooltipSmall" class="tooltip-small" aria-live="polite"></p>
+      </div>
+
     </div>
   </section>
 
-  <!-- RESUMEN GLOBAL -->
-  <section class="section" id="sec-global" style="--bg:#F0EFEA;">
-    <div class="content">
-      <h2>Resumen Global del Bienestar</h2>
-      <p id="global-summary">Cargando análisis global...</p>
 
-      <div class="global-cards">
-        <div class="gcard">
-          <h3>🌎 Países analizados</h3>
-          <p id="countCountries"></p>
-        </div>
 
-        <div class="gcard">
-          <h3>📈 Mayor crecimiento</h3>
-          <p id="bestGrowth"></p>
-        </div>
 
-        <div class="gcard">
-          <h3>📉 Mayor disminución</h3>
-          <p id="worstGrowth"></p>
-        </div>
-      </div>
 
-      <div class="card" style="margin-top:22px;">
-        <h3>Promedio mundial (2012–2024)</h3>
-        <canvas id="globalAvgChart"></canvas>
-      </div>
-    </div>
-  </section>
+  <!-- 2.4 — Comparativa -->
+  <section class="section" id="world-compare" style="--bg:#DDF3FF;">
+    <div class="content compare-wrapper">
 
-  <!-- RANKING -->
-  <section class="section" id="sec-rank" style="--bg:#FFE8E8;">
-    <div class="content">
-      <h2>Ranking Internacional</h2>
-      <p>Estos son los países más felices y los que presentan los niveles más bajos según los últimos datos disponibles.</p>
+      <h2 class="subsection-title">Comparativa entre países</h2>
 
-      <div class="rank-container">
-        <div class="rank-block">
-          <h3>🏆 Top 5 más felices</h3>
-          <ul id="top5"></ul>
-        </div>
+      <!-- Dropdown estilizado -->
+      <div class="compare-dropdown">
+        <button class="compare-btn" onclick="toggleDropdown()" aria-expanded="false">
+          Seleccionar países
+          <span class="arrow">▼</span>
+        </button>
 
-        <div class="rank-block">
-          <h3>🔻 Bottom 5 menos felices</h3>
-          <ul id="bottom5"></ul>
+        <div id="dropdown" class="dropdown-panel">
+          <!-- aquí se insertan dinámicamente los checkboxes -->
         </div>
       </div>
 
-      <div style="margin-top:18px;">
-        <button onclick="showSection(6)" class="cta">Ver evolución por país</button>
-      </div>
-    </div>
-  </section>
+      <!-- Lista de seleccionados -->
+      <div id="selectedList" class="selected-list">Ningún país seleccionado</div>
 
-  <!-- INDICADORES -->
-  <section class="section" id="sec-indic" style="--bg:#FFF8D6;">
-    <div class="content">
-      <h2>Indicadores del Bienestar</h2>
-      <p>Estos factores influyen significativamente en la percepción de felicidad en los países analizados.</p>
-
-      <div class="indic-grid">
-        <div class="indic">
-          <div class="icon">💰</div>
-          <h3>PIB per cápita</h3>
-          <p>Mide el acceso a recursos materiales y estabilidad económica.</p>
-        </div>
-
-        <div class="indic">
-          <div class="icon">❤️</div>
-          <h3>Esperanza de vida</h3>
-          <p>Representa la salud, seguridad y calidad de los servicios médicos.</p>
-        </div>
-
-        <div class="indic">
-          <div class="icon">🤝</div>
-          <h3>Apoyo social</h3>
-          <p>Evalúa la presencia de redes de confianza y solidaridad.</p>
-        </div>
-
-        <div class="indic">
-          <div class="icon">🕊️</div>
-          <h3>Libertad personal</h3>
-          <p>Indica la capacidad de tomar decisiones sobre la propia vida.</p>
-        </div>
-
-        <div class="indic">
-          <div class="icon">🏛️</div>
-          <h3>Confianza en instituciones</h3>
-          <p>Mide la seguridad, estabilidad y ausencia de corrupción.</p>
-        </div>
-
-        <div class="indic">
-          <div class="icon">🎁</div>
-          <h3>Generosidad</h3>
-          <p>Mide empatía y cooperación dentro de la sociedad.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EVOLUCIÓN POR PAÍS -->
-  <section class="section" id="sec-2" style="--bg:#DDF3FF;">
-    <div class="content">
-      <h2>Evolución de la Felicidad en el Mundo</h2>
-      <p>Explora cómo ha cambiado la percepción de felicidad en distintos países entre 2012 y 2024.</p>
-
-      <div class="view-toggle">
-        <button onclick="switchView('normalized')">Datos Normalizados</button>
-        <button onclick="switchView('original')">Datos Originales</button>
-      </div>
-
-      <section class="dashboard" id="normalizedView">
-        <div class="arrow" onclick="prevCard()">&#8592;</div>
-        <div class="card">
-          <h3 id="countryName">País</h3>
-          <canvas id="graphNormalized"></canvas>
-        </div>
-        <div class="arrow" onclick="nextCard()">&#8594;</div>
-      </section>
-
-      <section class="extras" id="originalView" style="display:none; margin-top:18px;">
-        <div class="tooltip-container card">
-          <h3>PIB <span class="tooltip">ℹ️<span class="tooltip-text" id="tooltipGDP"></span></span></h3>
-          <canvas id="graphGDP"></canvas>
-        </div>
-
-        <div class="tooltip-container card">
-          <h3>Esperanza de vida <span class="tooltip">ℹ️<span class="tooltip-text" id="tooltipLife"></span></span></h3>
-          <canvas id="graphLife"></canvas>
-        </div>
-
-        <div class="tooltip-container card">
-          <h3>Desigualdad <span class="tooltip">ℹ️<span class="tooltip-text" id="tooltipIneq"></span></span></h3>
-          <canvas id="graphIneq"></canvas>
-        </div>
-
-        <div class="tooltip-container card">
-          <h3>Evaluación de vida <span class="tooltip">ℹ️<span class="tooltip-text" id="tooltipEval"></span></span></h3>
-          <canvas id="graphEval"></canvas>
-        </div>
-      </section>
-
-      <div class="dropdown">
-        <button class="dropdown-btn" onclick="toggleDropdown()">Seleccionar países</button>
-        <div id="dropdown" class="dropdown-content"></div>
-      </div>
-      <div id="selectedList">Ningún país seleccionado</div>
-
-      <div id="compareChartContainer">
-        <h3>Comparativa de Evaluación de Vida
-          <span class="tooltip">ℹ️
-            <span class="tooltip-text">Comparación entre Colombia, Dinamarca, Estados Unidos, Perú y Afganistán (2012–2024).</span>
-          </span>
-        </h3>
+      <!-- Gráfica -->
+      <div id="compareChartContainer" class="compare-chart-container">
+        <h3>Comparativa de Evaluación de Vida</h3>
         <div class="compare-box">
           <canvas id="compareChart"></canvas>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- CONTINENTES -->
-  <section class="section" id="sec-continentes" style="--bg:#E8FFF2;">
-    <div class="content">
-      <h2>Muestra por Continente</h2>
-      <p>Calcula la media de evaluación de vida por continente (2012–2024).</p>
 
-      <div class="card">
-        <p>Nota: añade en el fichero <code>DATOS.js</code> la propiedad <code>continent</code> para cada país.</p>
-        <button id="btn-calc-continents">Calcular medias por continente</button>
-        <div id="continentsResult" style="margin-top:12px;"></div>
+
+  <!-- ========================================================= -->
+  <!-- ====================== SECCIÓN 3 ========================= -->
+  <!-- ======================= CONTINENTES ====================== -->
+  <!-- ========================================================= -->
+  <section class="section" id="sec-continents">
+    <section class="section" id="continent-view" style="--bg:#E8FFF2;">
+      <div class="content">
+        <h2>Muestra por Continente</h2>
+        <p>Medias de evaluación de vida por continente (2012–2024).</p>
+
+        <div class="card">
+          <p>Nota: añade en <code>DATOS.js</code> la propiedad <code>continent</code> para cada país.</p>
+          <button id="btn-calc-continents">Calcular medias</button>
+          <div id="continentsResult" style="margin-top:12px;"></div>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 
-  <!-- BIBLIOGRAFÍA -->
-  <section class="section" id="sec-biblio" style="--bg:#FFF5F0;">
-    <div class="content">
-      <h2>Bibliografía</h2>
-      <p>Fuentes y referencias utilizadas en este proyecto.</p>
-      <ul style="text-align:left; max-width:800px; margin:12px auto;">
-        <li>World Happiness Report. (2012–2024). Sustainable Development Solutions Network.</li>
-        <li>Datos y metodología: World Happiness Report (WHR)</li>
-        <li>Biblioteca de JavaScript: Chart.js</li>
-      </ul>
-    </div>
+
+  <!-- ========================================================= -->
+  <!-- ====================== SECCIÓN 4 ========================= -->
+  <!-- ===================== BIBLIOGRAFIA======================= -->
+  <!-- ========================================================= -->
+  <section class="section" id="sec-bibliography">
+    <section class="section" id="bibliography" style="--bg:#FFF5F0;">
+      <div class="content">
+        <h2>Bibliografía</h2>
+        <ul style="text-align:left; max-width:800px; margin:auto;">
+          <li>World Happiness Report (2012–2024)</li>
+          <li>Metodología WHR</li>
+          <li>Chart.js</li>
+        </ul>
+      </div>
+    </section>
   </section>
 
-  <!-- CRÉDITOS -->
-  <section class="section" id="sec-creditos" style="--bg:#F4F7FF;">
-    <div class="content">
-      <h2>Créditos</h2>
-      <p>Proyecto educativo - “Un Mundo Feliz” © 2025 | Desarrollado por Deiner</p>
-      <p>Herramientas: Chart.js · HTML · CSS · JS</p>
-    </div>
+  <!-- ========================================================= -->
+  <!-- ======================= SECCIÓN 5 ======================== -->
+  <!-- ========================= CRÉDITOS ======================== -->
+  <!-- ========================================================= -->
+  <section class="section" id="sec-credits">
+    <section class="section" id="credits" style="--bg:#F4F7FF;">
+      <div class="content">
+        <h2>Créditos</h2>
+        <p>Proyecto educativo — “Un Mundo Feliz” © 2025 | Desarrollado por Deiner</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Proyecto educativo — “Un Mundo Feliz” © 2025 | Desarrollado por Deiner</p>
+    </footer>
   </section>
 
-  <footer>
-    <p>Proyecto educativo - “Un Mundo Feliz” © 2025 | Desarrollado por Deiner</p>
-  </footer>
 
-  <!-- SCRIPTS DEL PROYECTO -->
+  <!-- SCRIPTS -->
   <script src="DATOS.js"></script>
   <script src="app.js"></script>
   <script src="navigation.js"></script>
-  <script src="animacion.js"></script> <!-- JS modular de animaciones -->
+  <script src="animacion.js"></script>
   <script src="carousel.js"></script>
-
-
 </body>
 </html>
