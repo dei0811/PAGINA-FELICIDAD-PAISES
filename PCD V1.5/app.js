@@ -25,21 +25,6 @@ let tooltipSmall, indicatorA, indicatorB;
 
 const countryNames = datasets ? Object.keys(datasets) : [];
 
-// ========================================================
-// ==================  IMÁGENES DE FONDO  =================
-// ========================================================
-
-// const countryBackgrounds = {
-//   "Afganistán": "Imagenes/Imagenes_Paises/afgan_feliz.jpg",
-//   "Colombia": "Imagenes/Imagenes_Paises/colombia_feliz.jpg",
-//   "Dinamarca": "Imagenes/Imagenes_Paises/dinamarca_feliz.jpg",
-//   "Estados Unidos": "Imagenes/Imagenes_Paises/gringo_feliz.jpg",
-//   "Perú": "Imagenes/Imagenes_Paises/Peru_feliz.jpg"
-// };
-
-// ========================================================
-// ==================  EVENTOS POR PAÍS  ==================
-// ========================================================
 
 const historicalEvents = {
   "Afganistán": [
@@ -259,6 +244,63 @@ function applyCountry(country) {
   renderSlideA(country);
   renderSlideB(country);
 }
+// ========================================================
+// ============== RENDER RANKING TOP/BOTTOM ===============
+// ========================================================
+
+function renderWorldRankings() {
+  // 1. Crear un array temporal solo con datos de 2024
+  let ranking2024 = [];
+
+  // Recorremos todos los países disponibles en 'datasets'
+  Object.keys(datasets).forEach(country => {
+    const countryData = datasets[country];
+    // Buscamos específicamente el año 2024
+    const data2024 = countryData.find(d => d.year === 2024);
+
+    // Si existe dato para 2024 y tiene evaluación de vida (lifeEval), lo guardamos
+    if (data2024 && data2024.lifeEval !== null) {
+      ranking2024.push({
+        name: country,
+        score: data2024.lifeEval
+      });
+    }
+  });
+
+  // 2. Ordenar de Mayor a Menor felicidad
+  ranking2024.sort((a, b) => b.score - a.score);
+
+  // 3. Extraer los 5 primeros y los 5 últimos
+  const top5 = ranking2024.slice(0, 5);
+  // Para los últimos 5, tomamos el final del array y lo invertimos para que el peor quede abajo (o arriba, según prefieras)
+  const bottom5 = ranking2024.slice(-5).reverse(); 
+
+  // 4. Función interna para inyectar HTML en las listas
+  const fillList = (elementId, listData) => {
+    const ul = document.getElementById(elementId);
+    if (!ul) return; // Protección por si no encuentra el ID
+    ul.innerHTML = ""; // Limpiar lista
+
+    listData.forEach((item, index) => {
+      const li = document.createElement("li");
+      // Estilo simple para separar nombre y puntaje
+      li.style.display = "flex";
+      li.style.justifyContent = "space-between";
+      li.style.padding = "5px 0";
+      li.style.borderBottom = "1px solid #eee";
+      
+      li.innerHTML = `
+        <span style="font-weight:500;">${index + 1}. ${item.name}</span>
+        <span style="font-weight:bold; color:#555;">★ ${item.score.toFixed(2)}</span>
+      `;
+      ul.appendChild(li);
+    });
+  };
+
+  // 5. Llenar las listas en el HTML
+  fillList("top5", top5);
+  fillList("bottom5", bottom5);
+}
 
 // ========================================================
 // =============== INIT SOCIAL SECTION =====================
@@ -436,6 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadDropdown();
   initSocialSection();
+  renderWorldRankings();
 });
 
 
