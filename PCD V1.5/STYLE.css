@@ -48,7 +48,7 @@ header.visible {
 
 /* header normal (fuera del hero) */
 header:not(.transparent) {
-  background: linear-gradient(90deg, #FF6F61, #FFCC70);
+  background: linear-gradient(90deg, #f81702, #f4a003);
   box-shadow: 0 6px 18px rgba(0,0,0,.25);
   backdrop-filter: blur(6px);
   color: #fff;
@@ -443,7 +443,7 @@ header:not(.transparent) .logo-text {
 
 /* SOLO cuando el header está transparente → gradiente animado */
 header.transparent .logo-text {
-  background: linear-gradient(90deg, #FF6F61, #FFCC70);
+  background: linear-gradient(90deg, #fc1601, #f8a203);
   background-size: 200% 200%;
   animation: gradientMove 6s ease infinite;
   -webkit-background-clip: text;
@@ -685,3 +685,137 @@ header.transparent .logo-emoji {
   background: #ffffff !important; /* por si el canvas es transparente */
   border-radius: 12px;
 }
+
+/* =============================== */
+/* SECCIÓN COLOMBIA — NUEVO DISEÑO */
+/* =============================== */
+
+.colombia-wrapper {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.colombia-problem {
+  font-size: 1.2rem;
+  background: #fff3c4;
+  padding: 18px 22px;
+  border-left: 6px solid #FFC300;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.col-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.col-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  width: 280px;
+  border-top: 5px solid #004B87;
+  text-align: center;
+}
+
+.col-card h3 {
+  color: #004B87;
+  margin-bottom: 6px;
+}
+
+.col-section {
+  margin-top: 45px;
+}
+
+.col-subtitle {
+  color: #C70039;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.col-chart {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.10);
+}
+
+.col-explain {
+  font-size: 1.1rem;
+  margin-top: 12px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.col-final {
+  margin-top: 50px;
+  background: #e8f1ff;
+  padding: 25px;
+  border-radius: 14px;
+  border-left: 5px solid #004B87;
+}
+
+.col-final h3 {
+  color: #004B87;
+  margin-bottom: 10px;
+}
+
+/* =============================== */
+/* TEXTO INTERPRETATIVO ENTRE BLOQUES A Y B */
+/* =============================== */
+.social-interpret {
+  margin: 30px auto 10px;
+  max-width: 900px;
+  background: #fff6dd;
+  padding: 20px 26px;
+  border-left: 6px solid #ff6f61;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+/* PANEL DE PERCEPCIÓN SOCIAL Y SOCIOECONÓMICO UNIFICADO */
+.social-block.minimal,
+.socio-block.minimal {
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.1);
+}
+/* FONDOS SÓLIDOS PARA LAS SECCIONES DE GRÁFICAS */
+#sec-world,
+#world-social,
+#world-ranking,
+#world-compare {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+}
+/* EVITAR QUE LAS GRÁFICAS SE ACHIQUE O RECORTEN */
+canvas {
+  display: block !important;
+  max-width: 100%;
+}
+/* AJUSTE VISUAL DEL SLIDER B */
+.socio-controls button {
+  font-size: 1.5rem;
+  opacity: 0.85;
+}
+.socio-controls button:hover {
+  opacity: 1;
+}
+
+
+#col-chart-socio {
+  height: 360px !important;
+}
+
+
+#col-chart-social {height: 360px !important;
+}
+
+#col-chart-life{ height: 360px !important; }

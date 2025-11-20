@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Un Mundo Feliz</title>
+  <title>Una Colombia Feliz</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="STYLE.css" />
@@ -16,16 +16,16 @@
   <header>
     <h1>
       <span class="logo-emoji">🌍</span>
-      <span class="logo-text">Un Mundo Feliz</span>
+      <span class="logo-text">Una Colombia Feliz</span>
     </h1>
 
     <nav>
       <button onclick="showSection(0)">Inicio</button>
       <button onclick="showSection(1)">Introducción</button>
       <button onclick="showSection(2)">Felicidad en el mundo</button>
-      <button onclick="showSection(3)">Continentes</button>
-      <button onclick="showSection(4)">Bibliografía</button>
-      <button onclick="showSection(5)">Créditos</button>
+      <!-- Continentes eliminado del menú según instrucciones -->
+      <button onclick="showSection(3)">Bibliografía</button>
+      <button onclick="showSection(4)">Créditos</button>
     </nav>
   </header>
 
@@ -57,12 +57,12 @@
 
     <!-- Contenido del hero -->
     <div class="hero-content">
-      <h2 id="heroTitle">Bienvenido a <strong>Un Mundo Feliz</strong></h2>
-      <p class="lead">Comparativa visual del bienestar según el World Happiness Report.</p>
+      <h2 id="heroTitle">Bienvenido a <strong>Una Colombia Feliz</strong></h2>
+      <p class="lead">Análisis del bienestar en Colombia y comparación con el mundo.</p>
 
       <div class="hero-buttons">
-        <button onclick="showSection(3)" class="cta">Explorar resumen</button>
-        <button onclick="showSection(5)" class="cta secondary">Ver evolución por país</button>
+        <button onclick="showSection(1)" class="cta">Ver situación de Colombia</button>
+        <button onclick="showSection(2)" class="cta secondary">Comparar países</button>
       </div>
     </div>
 
@@ -75,52 +75,163 @@
   <!-- ============== INTRODUCCIÓN AL PROYECTO ================= -->
   <!-- ========================================================= -->
   <section class="section" id="sec-intro">
-    <!-- 1.1 — Qué es la felicidad -->
+    <!-- 1.1 — Qué es la felicidad (texto humano/emocional) -->
     <section class="section" id="intro-happiness" style="--bg:#FFF8D6;">
       <div class="content">
         <h2>¿Qué es la felicidad?</h2>
-        <p>La felicidad no depende únicamente de la riqueza material, sino del bienestar integral. Factores como la esperanza de vida, el apoyo social, la libertad personal, la generosidad y la confianza en las instituciones son determinantes clave.</p>
-        <p>La felicidad se entiende aquí como una experiencia colectiva: un reflejo de la salud emocional, social y económica de los pueblos.</p>
+        <p>
+          La felicidad es la sensación de que la vida tiene sentido día a día: 
+          es despertarse con una red de apoyo a tu alrededor, encontrar esperanza en el mañana,
+          poder tomar decisiones sobre tu vida y sentir que las instituciones te escuchan. 
+          En Colombia, la felicidad también se teje con la resistencia, la comunidad y 
+          los pequeños actos cotidianos que sostienen a las familias y barrios.
+        </p>
+        <p>
+          No la medimos sólo por dinero: la felicidad aparece en la salud, en la confianza entre vecinos,
+          en la posibilidad de planear el futuro y en la certeza de que la sociedad protege a quienes más lo necesitan.
+        </p>
       </div>
     </section>
 
-    <!-- 1.2 — Indicadores del bienestar -->
+    <!-- 1.2 — Indicadores del bienestar (textos ampliados) -->
     <section class="section" id="intro-indicators" style="--bg:#FFF8D6;">
       <div class="content">
         <h2>Indicadores del Bienestar</h2>
-        <p>Estos factores influyen significativamente en la percepción de felicidad en los países analizados.</p>
+        <p>Estos factores influyen significativamente en la percepción de felicidad en los países analizados. Abajo explicamos su impacto concreto en la vida de los colombianos.</p>
 
         <div class="indic-grid">
 
-          <div class="indic"><div class="icon">💰</div><h3>PIB per cápita</h3><p>Mide estabilidad económica.</p></div>
-          <div class="indic"><div class="icon">❤️</div><h3>Esperanza de vida</h3><p>Representa salud y seguridad.</p></div>
-          <div class="indic"><div class="icon">🤝</div><h3>Apoyo social</h3><p>Evalúa confianza y redes sociales.</p></div>
-          <div class="indic"><div class="icon">🕊️</div><h3>Libertad personal</h3><p>Capacidad de tomar decisiones.</p></div>
-          <div class="indic"><div class="icon">🏛️</div><h3>Confianza institucional</h3><p>Mide corrupción y estabilidad.</p></div>
-          <div class="indic"><div class="icon">🎁</div><h3>Generosidad</h3><p>Empatía y cooperación.</p></div>
+          <div class="indic">
+            <div class="icon">💰</div>
+            <h3>PIB per cápita</h3>
+            <p>Más ingresos permiten mejores servicios y oportunidades, pero si la riqueza no se reparte, muchas familias siguen sin acceso a salud y educación de calidad.</p>
+          </div>
+
+          <div class="indic">
+            <div class="icon">❤️</div>
+            <h3>Esperanza de vida</h3>
+            <p>Vida más larga suele significar mejores condiciones de salud pública y prevención. Para Colombia, mejorar la atención primaria y la salud mental es clave.</p>
+          </div>
+
+          <div class="indic">
+            <div class="icon">🤝</div>
+            <h3>Apoyo social</h3>
+            <p>Redes familiares y vecinales fuertes son la columna vertebral del bienestar en Colombia: cuando las comunidades se cuidan, la resiliencia aumenta.</p>
+          </div>
+
+          <div class="indic">
+            <div class="icon">🕊️</div>
+            <h3>Libertad personal</h3>
+            <p>Poder elegir sobre el propio rumbo de vida —trabajo, vivienda, movilidad— es esencial. La sensación de libertad aumenta la autoestima y la satisfacción.</p>
+          </div>
+
+          <div class="indic">
+            <div class="icon">🏛️</div>
+            <h3>Confianza institucional</h3>
+            <p>Cuando la gente confía en sus instituciones hay menos incertidumbre y mayor cooperación ciudadana. En Colombia, la baja confianza limita la efectividad de políticas públicas.</p>
+          </div>
+
+          <div class="indic">
+            <div class="icon">🎁</div>
+            <h3>Generosidad</h3>
+            <p>Actos de solidaridad y ayuda mutua —desde donaciones hasta apoyo informal— fortalecen el tejido social y generan bienestar colectivo.</p>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- 1.3 — Resumen global -->
+    <!-- ============================ -->
+    <!-- 1.3 — Colombia Hoy (NUEVO)  -->
+    <!-- ============================ -->
     <section class="section" id="intro-global" style="--bg:#F0EFEA;">
-      <div class="content">
-        <h2>Resumen Global del Bienestar</h2>
-        <p id="global-summary">Cargando análisis global...</p>
+      <div class="content colombia-wrapper">
+        <h2>Colombia Hoy: Bienestar y Problemática</h2>
 
-        <div class="global-cards">
-          <div class="gcard"><h3>🌎 Países analizados</h3><p id="countCountries"></p></div>
-          <div class="gcard"><h3>📈 Mayor crecimiento</h3><p id="bestGrowth"></p></div>
-          <div class="gcard"><h3>📉 Mayor disminución</h3><p id="worstGrowth"></p></div>
+        <!-- PROBLEMÁTICA -->
+        <p class="colombia-problem">
+          A pesar de avances económicos en las últimas décadas, Colombia no figura entre los países con mayor bienestar subjetivo.
+          La evaluación de vida ha mostrado estancamiento en torno a valores medios, y factores como <strong>desigualdad</strong>,
+          <strong>baja confianza institucional</strong> y <stronglimit>brechas en salud mental</stronglimit> mantienen restricciones claras
+          para el crecimiento del bienestar.
+        </p>
+
+        <!-- TARJETAS -->
+        <div class="col-cards">
+          <div class="col-card">
+            <h3>📊 Último puntaje</h3>
+            <p id="col-last-eval">Cargando...</p>
+          </div>
+          <div class="col-card">
+            <h3>📉 Mejor / Peor año</h3>
+            <p id="col-best-worst">Cargando...</p>
+          </div>
+          <div class="col-card">
+            <h3>📈 Promedio últimos 3 años</h3>
+            <p id="col-avg3">Cargando...</p>
+          </div>
         </div>
 
-        <div class="card" style="margin-top:22px;">
-          <h3>Promedio mundial (2012–2024)</h3>
-          <canvas id="globalAvgChart"></canvas>
+        <!-- GRÁFICO 1 — Evaluación de vida -->
+        <div class="col-section">
+          <h3 class="col-subtitle">Evaluación de vida en Colombia (2012–2024)</h3>
+          <div class="col-chart">
+            <canvas id="col-chart-life"></canvas>
+          </div>
+          <p class="col-explain">
+            La evaluación de vida muestra un comportamiento estable. Esto sugiere que el crecimiento económico no siempre se traduce en mejora del bienestar subjetivo.
+          </p>
         </div>
+
+        <!-- GRÁFICO 2 — Factores Sociales -->
+        <div class="col-section">
+          <h3 class="col-subtitle">Factores Sociales</h3>
+          <div class="col-chart">
+            <canvas id="col-chart-social"></canvas>
+          </div>
+          <p class="col-explain">
+            El apoyo social y la libertad personal son variables cruciales que oscilan y afectan la percepción general. La confianza institucional, por su parte, se mantiene baja.
+          </p>
+        </div>
+
+        <!-- GRÁFICO 3 — Factores Socioeconómicos -->
+       <!-- GRÁFICO 3 — Factores Socioeconómicos (con slider) -->
+<div class="col-section">
+  <h3 class="col-subtitle">Factores Socioeconómicos</h3>
+
+  <!-- Controles del Slider -->
+  <div class="slider-a-controls">
+    <button id="col-socio-prev" class="btn-plain">⟨</button>
+
+    <div class="col-chart">
+      <canvas id="col-chart-socio"></canvas>
+    </div>
+
+    <button id="col-socio-next" class="btn-plain">⟩</button>
+  </div>
+
+  <!-- Texto dinámico (como tooltipSmall) -->
+  <p id="col-socio-info" class="tooltip-small"></p>
+
+  <p class="col-explain">
+    El PIB per cápita ha mostrado crecimiento desigual entre regiones; la desigualdad sigue siendo un factor decisivo para el bienestar nacional.
+  </p>
+</div>
+
+
+        <!-- CIERRE -->
+        <div class="col-final">
+          <h3>Conclusión</h3>
+          <p>
+            Colombia posee fortalezas culturales y comunitarias que sostienen el día a día, pero los factores estructurales —desigualdad,
+            baja confianza institucional, desconexión en salud mental y falta de cohesión territorial— han limitado el incremento del bienestar.
+            Para mejorar, se requiere apostar por políticas que reduzcan la desigualdad, fortalezcan instituciones y expandan la salud pública.
+          </p>
+        </div>
+
       </div>
     </section>
+
   </section>
 
 
@@ -141,7 +252,7 @@
           <div class="rank-block"><h3>🔻 5 menos felices</h3><ul id="bottom5"></ul></div>
         </div>
 
-        <button onclick="showSection(5)" class="cta" style="margin-top:18px;">Ver evolución por país</button>
+        <button onclick="showSection(4)" class="cta" style="margin-top:18px;">Ver evolución por país</button>
       </div>
     </section>
 
@@ -186,13 +297,17 @@
         </div>
       </div>
 
+      <!-- INTERPRETACIÓN SOLICITADA -->
+      <p id="social-interpret" class="social-interpret"></p>
+
       <!-- BLOQUE B — FACTORES SOCIOECONÓMICOS (ABAJO, SLIDER B pequeño) -->
       <div class="socio-block minimal">
         <div class="socio-header">
           <h3>Factores socioeconómicos</h3>
           <div class="socio-controls">
+            <!-- Ajuste: formato igual al slider A, sin nombre de país -->
             <button id="slideBprev" class="btn-plain">◂</button>
-            <span id="countryName" class="country-name">—</span>
+            <!-- nombre del país eliminado según instrucciones -->
             <button id="slideBnext" class="btn-plain">▸</button>
           </div>
         </div>
@@ -235,6 +350,9 @@
         </div>
       </div>
 
+      <!-- Añadido: insight de comparativa -->
+      <p id="compare-insight" class="compare-insight"></p>
+
       <!-- Lista de seleccionados -->
       <div id="selectedList" class="selected-list">Ningún país seleccionado</div>
 
@@ -253,26 +371,6 @@
 
   <!-- ========================================================= -->
   <!-- ====================== SECCIÓN 3 ========================= -->
-  <!-- ======================= CONTINENTES ====================== -->
-  <!-- ========================================================= -->
-  <section class="section" id="sec-continents">
-    <section class="section" id="continent-view" style="--bg:#E8FFF2;">
-      <div class="content">
-        <h2>Muestra por Continente</h2>
-        <p>Medias de evaluación de vida por continente (2012–2024).</p>
-
-        <div class="card">
-          <p>Nota: añade en <code>DATOS.js</code> la propiedad <code>continent</code> para cada país.</p>
-          <button id="btn-calc-continents">Calcular medias</button>
-          <div id="continentsResult" style="margin-top:12px;"></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-
-  <!-- ========================================================= -->
-  <!-- ====================== SECCIÓN 4 ========================= -->
   <!-- ===================== BIBLIOGRAFIA======================= -->
   <!-- ========================================================= -->
   <section class="section" id="sec-bibliography">
@@ -289,19 +387,19 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- ======================= SECCIÓN 5 ======================== -->
+  <!-- ======================= SECCIÓN 4 ======================== -->
   <!-- ========================= CRÉDITOS ======================== -->
   <!-- ========================================================= -->
   <section class="section" id="sec-credits">
     <section class="section" id="credits" style="--bg:#F4F7FF;">
       <div class="content">
         <h2>Créditos</h2>
-        <p>Proyecto educativo — “Un Mundo Feliz” © 2025 | Desarrollado por Deiner y Luis</p>
+        <p>Proyecto educativo — “Una Colombia Feliz” © 2025 | Desarrollado por Deiner,Luis y alejandro</p>
       </div>
     </section>
 
     <footer>
-      <p>Proyecto educativo — “Un Mundo Feliz” © 2025 | Desarrollado por Deiner Gonzalez y Luis Mendoza</p>
+      <p>Proyecto educativo — “Una Colombia Feliz” © 2025 | Desarrollado por Deiner Gonzalez, Luis Mendoza,Alejandro Soto</p>
     </footer>
   </section>
 
