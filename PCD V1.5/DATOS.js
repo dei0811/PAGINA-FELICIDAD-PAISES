@@ -13,9 +13,8 @@
   { year: 2021, socialSupport: 0.454, gdp: 2144, lifeExpectancy: 50.5, freedom: 0.394, generosity: 0.071, corruption: 0.946, inequality: 1.09, lifeEval: 2.404, ranking: 146 },
   { year: 2022, socialSupport: 0.228, gdp: 1982, lifeExpectancy: 50.5, freedom: 0.368, generosity: 0.069, corruption: 0.733, inequality: 1.08, lifeEval: 1.859, ranking: 137 },
   { year: 2023, socialSupport: 0.368, gdp: 1992, lifeExpectancy: 50.5, freedom: 0.228, generosity: 0.105, corruption: 0.738, inequality: 1.34, lifeEval: 1.721, ranking: 143 },
-  { year: 2024, socialSupport: 0.0, gdp: 0.649, lifeExpectancy: 0.155, freedom: 0.0, generosity: 0.075, corruption: 0.135, inequality: null, lifeEval: 1.364, ranking: 147 }
 ],
- "colombia" : [
+ "Colombia" : [
   { year: 2012, socialSupport: 0.621, gdp: 10123, lifeExpectancy: 73.1, freedom: 0.603, generosity: 0.254, corruption: 0.783, inequality: 1.2, lifeEval: 6.25, ranking: 40 },
   { year: 2013, socialSupport: 0.635, gdp: 10452, lifeExpectancy: 73.3, freedom: 0.615, generosity: 0.241, corruption: 0.792, inequality: 1.3, lifeEval: 6.32, ranking: 39 },
   { year: 2014, socialSupport: 0.648, gdp: 10760, lifeExpectancy: 73.5, freedom: 0.627, generosity: 0.233, corruption: 0.784, inequality: 1.4, lifeEval: 6.39, ranking: 36 },
@@ -28,7 +27,6 @@
   { year: 2021, socialSupport: 0.669, gdp: 12214, lifeExpectancy: 74.7, freedom: 0.649, generosity: 0.192, corruption: 0.755, inequality: 2.1, lifeEval: 6.25, ranking: 59 },
   { year: 2022, socialSupport: 0.663, gdp: 12503, lifeExpectancy: 74.8, freedom: 0.642, generosity: 0.188, corruption: 0.751, inequality: 2.2, lifeEval: 6.19, ranking: 66 },
   { year: 2023, socialSupport: 0.657, gdp: 12811, lifeExpectancy: 75.0, freedom: 0.638, generosity: 0.184, corruption: 0.749, inequality: 2.3, lifeEval: 6.14, ranking: 72 },
-  { year: 2024, socialSupport: 1.513, gdp: 1.38, lifeExpectancy: 0.587, freedom: 0.777, generosity: 0.039, corruption: 0.051, inequality: null, lifeEval: 6.004, ranking: 61 }
 ],
  "Estados Unidos" : [
   { year: 2012, socialSupport: 0.905, gdp: 52825, lifeExpectancy: 78.8, freedom: 0.860, generosity: 0.360, corruption: 0.650, inequality: 1.1, lifeEval: 7.12, ranking: 11 },
@@ -58,8 +56,7 @@
   { year: 2021, socialSupport: 0.966, gdp: 56210, lifeExpectancy: 81.2, freedom: 0.927, generosity: 0.290, corruption: 0.798, inequality: 1.2, lifeEval: 7.57, ranking: 2 },
   { year: 2022, socialSupport: 0.965, gdp: 58300, lifeExpectancy: 81.3, freedom: 0.926, generosity: 0.288, corruption: 0.796, inequality: 1.2, lifeEval: 7.56, ranking: 2 },
   { year: 2023, socialSupport: 0.964, gdp: 60250, lifeExpectancy: 81.4, freedom: 0.925, generosity: 0.285, corruption: 0.794, inequality: 1.3, lifeEval: 7.55, ranking: 2 },
-  { year: 2024, socialSupport: 1.84, gdp: 1.799, lifeExpectancy: 0.873, freedom: 0.971, generosity: 0.201, corruption: 0.173, inequality: null, lifeEval: 7.515, ranking: 3 }
-],
+ ],
  "peru" : [
   { year: 2012, socialSupport: 0.835, gdp: 6590, lifeExpectancy: 74.5, freedom: 0.680, generosity: 0.210, corruption: 0.780, inequality: 1.5, lifeEval: 5.84, ranking: 54 },
   { year: 2013, socialSupport: 0.840, gdp: 6820, lifeExpectancy: 74.7, freedom: 0.682, generosity: 0.208, corruption: 0.775, inequality: 1.5, lifeEval: 5.85, ranking: 55 },
