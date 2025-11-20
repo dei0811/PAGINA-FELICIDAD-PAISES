@@ -13,7 +13,7 @@
   { year: 2021, socialSupport: 0.454, gdp: 2144, lifeExpectancy: 50.5, freedom: 0.394, generosity: 0.071, corruption: 0.946, inequality: 1.09, lifeEval: 2.404, ranking: 146 },
   { year: 2022, socialSupport: 0.228, gdp: 1982, lifeExpectancy: 50.5, freedom: 0.368, generosity: 0.069, corruption: 0.733, inequality: 1.08, lifeEval: 1.859, ranking: 137 },
   { year: 2023, socialSupport: 0.368, gdp: 1992, lifeExpectancy: 50.5, freedom: 0.228, generosity: 0.105, corruption: 0.738, inequality: 1.34, lifeEval: 1.721, ranking: 143 },
-  { year: 2024, socialSupport: null, gdp: null, lifeExpectancy: 50.5, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 1.364, ranking: 147 }
+  { year: 2024, socialSupport: 0.0, gdp: 0.649, lifeExpectancy: 0.155, freedom: 0.0, generosity: 0.075, corruption: 0.135, inequality: null, lifeEval: 1.364, ranking: 147 }
 ],
  "colombia" : [
   { year: 2012, socialSupport: 0.621, gdp: 10123, lifeExpectancy: 73.1, freedom: 0.603, generosity: 0.254, corruption: 0.783, inequality: 1.2, lifeEval: 6.25, ranking: 40 },
@@ -28,7 +28,7 @@
   { year: 2021, socialSupport: 0.669, gdp: 12214, lifeExpectancy: 74.7, freedom: 0.649, generosity: 0.192, corruption: 0.755, inequality: 2.1, lifeEval: 6.25, ranking: 59 },
   { year: 2022, socialSupport: 0.663, gdp: 12503, lifeExpectancy: 74.8, freedom: 0.642, generosity: 0.188, corruption: 0.751, inequality: 2.2, lifeEval: 6.19, ranking: 66 },
   { year: 2023, socialSupport: 0.657, gdp: 12811, lifeExpectancy: 75.0, freedom: 0.638, generosity: 0.184, corruption: 0.749, inequality: 2.3, lifeEval: 6.14, ranking: 72 },
-  { year: 2024, socialSupport: null, gdp: null, lifeExpectancy: 75.1, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 6.08, ranking: 76 }
+  { year: 2024, socialSupport: 1.513, gdp: 1.38, lifeExpectancy: 0.587, freedom: 0.777, generosity: 0.039, corruption: 0.051, inequality: null, lifeEval: 6.004, ranking: 61 }
 ],
  "Estados Unidos" : [
   { year: 2012, socialSupport: 0.905, gdp: 52825, lifeExpectancy: 78.8, freedom: 0.860, generosity: 0.360, corruption: 0.650, inequality: 1.1, lifeEval: 7.12, ranking: 11 },
@@ -58,7 +58,7 @@
   { year: 2021, socialSupport: 0.966, gdp: 56210, lifeExpectancy: 81.2, freedom: 0.927, generosity: 0.290, corruption: 0.798, inequality: 1.2, lifeEval: 7.57, ranking: 2 },
   { year: 2022, socialSupport: 0.965, gdp: 58300, lifeExpectancy: 81.3, freedom: 0.926, generosity: 0.288, corruption: 0.796, inequality: 1.2, lifeEval: 7.56, ranking: 2 },
   { year: 2023, socialSupport: 0.964, gdp: 60250, lifeExpectancy: 81.4, freedom: 0.925, generosity: 0.285, corruption: 0.794, inequality: 1.3, lifeEval: 7.55, ranking: 2 },
-  { year: 2024, socialSupport: null, gdp: null, lifeExpectancy: 81.5, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.54, ranking: 2 }
+  { year: 2024, socialSupport: 1.84, gdp: 1.799, lifeExpectancy: 0.873, freedom: 0.971, generosity: 0.201, corruption: 0.173, inequality: null, lifeEval: 7.515, ranking: 3 }
 ],
  "peru" : [
   { year: 2012, socialSupport: 0.835, gdp: 6590, lifeExpectancy: 74.5, freedom: 0.680, generosity: 0.210, corruption: 0.780, inequality: 1.5, lifeEval: 5.84, ranking: 54 },
@@ -75,4 +75,125 @@
   { year: 2023, socialSupport: 0.870, gdp: 8550, lifeExpectancy: 76.1, freedom: 0.688, generosity: 0.183, corruption: 0.732, inequality: 1.2, lifeEval: 5.68, ranking: 65 },
   { year: 2024, socialSupport: null, gdp: null, lifeExpectancy: 76.2, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.67, ranking: 65 }
 ],
+"Islandia": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 6.888, ranking: 20 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.355, ranking: 9 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.561, ranking: 2 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.501, ranking: 3 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.504, ranking: 3 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.495, ranking: 4 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.494, ranking: 4 },
+        { year: 2019, socialSupport: 1.548, gdp: 1.327, lifeExpectancy: 1.001, freedom: 0.662, generosity: 0.362, corruption: 0.145, inequality: null, lifeEval: 7.504, ranking: 4 },
+        { year: 2020, socialSupport: 1.172, gdp: 1.482, lifeExpectancy: 0.772, freedom: 0.698, generosity: 0.293, corruption: 0.17, inequality: null, lifeEval: 7.554, ranking: 5 },
+        { year: 2021, socialSupport: 1.32, gdp: 1.936, lifeExpectancy: 0.803, freedom: 0.718, generosity: 0.27, corruption: 0.191, inequality: null, lifeEval: 7.557, ranking: 3 },
+        { year: 2022, socialSupport: 1.62, gdp: 1.926, lifeExpectancy: 0.559, freedom: 0.738, generosity: 0.25, corruption: 0.187, inequality: null, lifeEval: 7.53, ranking: 3 },
+        { year: 2023, socialSupport: 1.617, gdp: 1.881, lifeExpectancy: 0.718, freedom: 0.819, generosity: 0.258, corruption: 0.182, inequality: null, lifeEval: 7.525, ranking: 3 },
+        { year: 2024, socialSupport: 1.84, gdp: 1.799, lifeExpectancy: 0.873, freedom: 0.971, generosity: 0.201, corruption: 0.173, inequality: null, lifeEval: 7.515, ranking: 3 }
+],
+"Suecia": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.379, ranking: 7 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.48, ranking: 5 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.364, ranking: 8 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.291, ranking: 10 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.284, ranking: 10 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.314, ranking: 9 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.343, ranking: 7 },
+        { year: 2019, socialSupport: 1.433, gdp: 1.322, lifeExpectancy: 0.986, freedom: 0.65, generosity: 0.273, corruption: 0.442, inequality: null, lifeEval: 7.353, ranking: 7 },
+        { year: 2020, socialSupport: 1.062, gdp: 1.478, lifeExpectancy: 0.763, freedom: 0.685, generosity: 0.244, corruption: 0.448, inequality: null, lifeEval: 7.363, ranking: 8 },
+        { year: 2021, socialSupport: 1.204, gdp: 1.92, lifeExpectancy: 0.803, freedom: 0.724, generosity: 0.218, corruption: 0.512, inequality: null, lifeEval: 7.384, ranking: 7 },
+        { year: 2022, socialSupport: 1.51, gdp: 1.921, lifeExpectancy: 0.562, freedom: 0.754, generosity: 0.225, corruption: 0.52, inequality: null, lifeEval: 7.395, ranking: 6 },
+        { year: 2023, socialSupport: 1.501, gdp: 1.878, lifeExpectancy: 0.724, freedom: 0.838, generosity: 0.221, corruption: 0.524, inequality: null, lifeEval: 7.344, ranking: 4 },
+        { year: 2024, socialSupport: 1.698, gdp: 1.783, lifeExpectancy: 0.889, freedom: 0.952, generosity: 0.17, corruption: 0.467, inequality: null, lifeEval: 7.345, ranking: 4 }
+],
+"Países Bajos": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.512, ranking: 4 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.512, ranking: 4 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.378, ranking: 7 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.339, ranking: 7 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.377, ranking: 6 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.441, ranking: 6 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.488, ranking: 5 },
+        { year: 2019, socialSupport: 1.464, gdp: 1.339, lifeExpectancy: 0.976, freedom: 0.614, generosity: 0.336, corruption: 0.369, inequality: null, lifeEval: 7.449, ranking: 6 },
+        { year: 2020, socialSupport: 1.079, gdp: 1.501, lifeExpectancy: 0.753, freedom: 0.647, generosity: 0.302, corruption: 0.384, inequality: null, lifeEval: 7.464, ranking: 6 },
+        { year: 2021, socialSupport: 1.206, gdp: 1.945, lifeExpectancy: 0.787, freedom: 0.651, generosity: 0.271, corruption: 0.419, inequality: null, lifeEval: 7.415, ranking: 5 },
+        { year: 2022, socialSupport: 1.488, gdp: 1.942, lifeExpectancy: 0.545, freedom: 0.672, generosity: 0.251, corruption: 0.394, inequality: null, lifeEval: 7.403, ranking: 5 },
+        { year: 2023, socialSupport: 1.462, gdp: 1.901, lifeExpectancy: 0.706, freedom: 0.725, generosity: 0.247, corruption: 0.372, inequality: null, lifeEval: 7.319, ranking: 6 },
+        { year: 2024, socialSupport: 1.667, gdp: 1.822, lifeExpectancy: 0.844, freedom: 0.86, generosity: 0.186, corruption: 0.344, inequality: null, lifeEval: 7.306, ranking: 5 }
+],
+"Zimbabue": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.978, ranking: 142 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.827, ranking: 103 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.61, ranking: 115 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.193, ranking: 131 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.875, ranking: 138 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.692, ranking: 144 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.663, ranking: 146 },
+        { year: 2019, socialSupport: 1.048, gdp: 0.426, lifeExpectancy: 0.375, freedom: 0.377, generosity: 0.151, corruption: 0.081, inequality: null, lifeEval: 3.299, ranking: 151 },
+        { year: 2020, socialSupport: 0.649, gdp: 0.457, lifeExpectancy: 0.243, freedom: 0.359, generosity: 0.157, corruption: 0.075, inequality: null, lifeEval: 3.145, ranking: 149 },
+        { year: 2021, socialSupport: 0.69, gdp: 0.947, lifeExpectancy: 0.27, freedom: 0.329, generosity: 0.106, corruption: 0.105, inequality: null, lifeEval: 2.995, ranking: 144 },
+        { year: 2022, socialSupport: 0.881, gdp: 0.758, lifeExpectancy: 0.069, freedom: 0.363, generosity: 0.112, corruption: 0.117, inequality: null, lifeEval: 3.204, ranking: 134 },
+        { year: 2023, socialSupport: 0.85, gdp: 0.748, lifeExpectancy: 0.232, freedom: 0.487, generosity: 0.096, corruption: 0.131, inequality: null, lifeEval: 3.341, ranking: 138 },
+        { year: 2024, socialSupport: 0.961, gdp: 0.827, lifeExpectancy: 0.178, freedom: 0.598, generosity: 0.065, corruption: 0.131, inequality: null, lifeEval: 3.396, ranking: 143 }
+],
+"Malaui": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.624, ranking: 114 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.113, ranking: 139 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.292, ranking: 131 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.156, ranking: 132 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.97, ranking: 136 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.587, ranking: 147 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.41, ranking: 150 },
+        { year: 2019, socialSupport: 0.53, gdp: 0.177, lifeExpectancy: 0.446, freedom: 0.487, generosity: 0.213, corruption: 0.132, inequality: null, lifeEval: 3.538, ranking: 145 },
+        { year: 2020, socialSupport: 0.168, gdp: 0.113, lifeExpectancy: 0.298, freedom: 0.484, generosity: 0.213, corruption: 0.134, inequality: null, lifeEval: 3.6, ranking: 145 },
+        { year: 2021, socialSupport: 0.279, gdp: 0.648, lifeExpectancy: 0.388, freedom: 0.477, generosity: 0.14, corruption: 0.157, inequality: null, lifeEval: 3.75, ranking: 138 },
+        { year: 2022, socialSupport: 0.479, gdp: 0.637, lifeExpectancy: 0.189, freedom: 0.49, generosity: 0.139, corruption: 0.129, inequality: null, lifeEval: 3.495, ranking: 131 },
+        { year: 2023, socialSupport: 0.41, gdp: 0.617, lifeExpectancy: 0.349, freedom: 0.571, generosity: 0.135, corruption: 0.136, inequality: null, lifeEval: 3.421, ranking: 136 },
+        { year: 2024, socialSupport: 0.489, gdp: 0.588, lifeExpectancy: 0.28, freedom: 0.677, generosity: 0.115, corruption: 0.136, inequality: null, lifeEval: 3.26, ranking: 144 }
+],
+"Líbano": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.049, ranking: 92 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.931, ranking: 97 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.839, ranking: 103 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.129, ranking: 93 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.225, ranking: 88 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.199, ranking: 88 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 5.197, ranking: 91 },
+        { year: 2019, socialSupport: 1.192, gdp: 0.889, lifeExpectancy: 0.789, freedom: 0.186, generosity: 0.159, corruption: 0.022, inequality: null, lifeEval: 4.772, ranking: 111 },
+        { year: 2020, socialSupport: 0.868, gdp: 1.045, lifeExpectancy: 0.595, freedom: 0.175, generosity: 0.14, corruption: 0.026, inequality: null, lifeEval: 4.584, ranking: 124 },
+        { year: 2021, socialSupport: 0.498, gdp: 1.392, lifeExpectancy: 0.631, freedom: 0.103, generosity: 0.082, corruption: 0.034, inequality: null, lifeEval: 2.955, ranking: 145 },
+        { year: 2022, socialSupport: 0.476, gdp: 1.417, lifeExpectancy: 0.398, freedom: 0.123, generosity: 0.061, corruption: 0.027, inequality: null, lifeEval: 2.392, ranking: 136 },
+        { year: 2023, socialSupport: 0.577, gdp: 1.377, lifeExpectancy: 0.556, freedom: 0.173, generosity: 0.068, corruption: 0.029, inequality: null, lifeEval: 2.707, ranking: 142 },
+        { year: 2024, socialSupport: 0.984, gdp: 1.223, lifeExpectancy: 0.44, freedom: 0.279, generosity: 0.071, corruption: 0.041, inequality: null, lifeEval: 3.188, ranking: 145 }
+],
+"Sierra Leona": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 3.586, ranking: 153 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.318, ranking: 127 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.507, ranking: 123 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.635, ranking: 111 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.709, ranking: 106 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.571, ranking: 113 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 4.374, ranking: 129 },
+        { year: 2019, socialSupport: 0.748, gdp: 0.241, lifeExpectancy: 0.204, freedom: 0.382, generosity: 0.258, corruption: 0.048, inequality: null, lifeEval: 3.926, ranking: 139 },
+        { year: 2020, socialSupport: 0.377, gdp: 0.279, lifeExpectancy: 0.1, freedom: 0.408, generosity: 0.243, corruption: 0.047, inequality: null, lifeEval: 3.849, ranking: 139 },
+        { year: 2021, socialSupport: 0.416, gdp: 0.686, lifeExpectancy: 0.273, freedom: 0.387, generosity: 0.202, corruption: 0.055, inequality: null, lifeEval: 3.574, ranking: 140 },
+        { year: 2022, socialSupport: 0.54, gdp: 0.67, lifeExpectancy: 0.092, freedom: 0.371, generosity: 0.193, corruption: 0.051, inequality: null, lifeEval: 3.138, ranking: 135 },
+        { year: 2023, socialSupport: 0.566, gdp: 0.654, lifeExpectancy: 0.253, freedom: 0.469, generosity: 0.181, corruption: 0.053, inequality: null, lifeEval: 3.245, ranking: 140 },
+        { year: 2024, socialSupport: 0.692, gdp: 0.786, lifeExpectancy: 0.327, freedom: 0.613, generosity: 0.138, corruption: 0.052, inequality: null, lifeEval: 2.998, ranking: 146 }
+],
+"Finlandia": [
+        { year: 2011, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.579, ranking: 2 },
+        { year: 2012, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.389, ranking: 7 },
+        { year: 2014, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.406, ranking: 6 },
+        { year: 2015, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.413, ranking: 5 },
+        { year: 2016, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.469, ranking: 5 },
+        { year: 2017, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.632, ranking: 1 },
+        { year: 2018, socialSupport: null, gdp: null, lifeExpectancy: null, freedom: null, generosity: null, corruption: null, inequality: null, lifeEval: 7.769, ranking: 1 },
+        { year: 2019, socialSupport: 1.5, gdp: 1.285, lifeExpectancy: 0.961, freedom: 0.662, generosity: 0.16, corruption: 0.478, inequality: null, lifeEval: 7.809, ranking: 1 },
+        { year: 2020, socialSupport: 1.106, gdp: 1.446, lifeExpectancy: 0.741, freedom: 0.691, generosity: 0.124, corruption: 0.481, inequality: null, lifeEval: 7.842, ranking: 2 },
+        { year: 2021, socialSupport: 1.258, gdp: 1.892, lifeExpectancy: 0.775, freedom: 0.736, generosity: 0.109, corruption: 0.534, inequality: null, lifeEval: 7.821, ranking: 1 },
+        { year: 2022, socialSupport: 1.585, gdp: 1.888, lifeExpectancy: 0.535, freedom: 0.772, generosity: 0.126, corruption: 0.535, inequality: null, lifeEval: 7.804, ranking: 1 },
+        { year: 2023, socialSupport: 1.572, gdp: 1.844, lifeExpectancy: 0.695, freedom: 0.859, generosity: 0.142, corruption: 0.546, inequality: null, lifeEval: 7.741, ranking: 1 },
+        { year: 2024, socialSupport: 1.783, gdp: 1.749, lifeExpectancy: 0.824, freedom: 0.986, generosity: 0.11, corruption: 0.502, inequality: null, lifeEval: 7.736, ranking: 1 }
+],
+
 };
